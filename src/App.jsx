@@ -1,9 +1,8 @@
-const App = () => {
-  return <div>
-    
+import Button from "./components/UI/Button";
 
-    
-  </div>;
+const App = () => {
+  return <div><Button variant='warning'>Настройки</Button></div>;
 };
 
 export default App;
+ 
