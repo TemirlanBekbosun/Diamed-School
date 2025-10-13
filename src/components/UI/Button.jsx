@@ -1,0 +1,73 @@
+import { Button as MuiButton, styled } from "@mui/material";
+import { forwardRef } from "react";
+
+const Button = forwardRef(
+  (
+    {
+      children,
+      onClick,
+      variant = "contained",
+      disabled,
+      type = "submit",
+      ...rest
+    },
+    ref
+  ) => (
+    <StyledButton
+      onClick={onClick}
+      type={type}
+      disabled={disabled}
+      variant={variant}
+      ref={ref}
+      {...rest}
+    >
+      {children}
+    </StyledButton>
+  )
+);
+
+export default Button;
+
+const StyledButton = styled(MuiButton)(({ variant }) => {
+  const buttonStyles = {
+    "&.MuiButton-root": {
+      borderRadius: "8px",
+      padding: "10px 70px",
+      position: "relative",
+      textTransform: "none",
+      fontWeight: 500,
+      fontSize: "16px",
+    },
+  };
+
+  if (variant === "contained") {
+    buttonStyles["&.MuiButton-root"] = {
+      ...buttonStyles["&.MuiButton-root"],
+
+      backgroundColor: "white",
+      color: "#1D3452",
+      border: "1.5px solid #FF8FA3",
+      boxShadow: "3px 2px 0px #3A86FF",
+      color: "#3A86FF",
+
+      "&:hover": {
+        backgroundColor: "#F5F2F9",
+        transition: "all 0.6s",
+      },
+
+      "&:active": {
+        color: "white",
+        border: "1.5px solid #3A86FF",
+        backgroundColor: "#3A86FF",
+        boxShadow: "3px 3px 0px #f8b5c3",
+      },
+
+      "&.Mui-disabled": {
+        backgroundColor: "#BDBDBD",
+        color: "white",
+      },
+    };
+  }
+
+  return buttonStyles;
+});
