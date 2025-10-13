@@ -1,6 +1,7 @@
 import { Button as MuiButton, styled } from "@mui/material";
 import { forwardRef } from "react";
 import Setting from "../../assets/icons/Setting.svg";
+import LogOut from "../../assets/icons/LogOut.svg";
 
 const Button = forwardRef(
   (
@@ -26,6 +27,11 @@ const Button = forwardRef(
       {variant === "contained" && (
         <IconWrapper>
           <img src={Setting} alt="settings" />
+        </IconWrapper>
+      )}
+      {variant === "warning" && (
+        <IconWrapper>
+          <img src={LogOut} alt="" />
         </IconWrapper>
       )}
     </StyledButton>
