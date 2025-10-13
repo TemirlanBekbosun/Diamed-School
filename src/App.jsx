@@ -1,11 +1,5 @@
-import Button from "./components/UI/Button";
-
 const App = () => {
-  return (
-    <div>
-      <Button variant="warning">Выход</Button>
-    </div>
-  );
+  return <h1>Diamond School</h1>;
 };
 
 export default App;

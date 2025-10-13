@@ -1,7 +1,5 @@
 import { Button as MuiButton, styled } from "@mui/material";
 import { forwardRef } from "react";
-import Setting from "../../assets/icons/Setting.svg";
-import LogOut from "../../assets/icons/LogOut.svg";
 
 const Button = forwardRef(
   (
@@ -24,39 +22,17 @@ const Button = forwardRef(
       {...rest}
     >
       {children}
-      {variant === "contained" && (
-        <IconWrapper>
-          <img src={Setting} alt="settings" />
-        </IconWrapper>
-      )}
-      {variant === "warning" && (
-        <IconWrapper>
-          <img src={LogOut} alt="" />
-        </IconWrapper>
-      )}
     </StyledButton>
   )
 );
 
 export default Button;
 
-const IconWrapper = styled("span")({
-  position: "absolute",
-  right: "20px",
-  top: "50%",
-  transform: "translateY(-50%)",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: "20px",
-  height: "20px",
-});
-
 const StyledButton = styled(MuiButton)(({ variant }) => {
   const buttonStyles = {
     "&.MuiButton-root": {
       borderRadius: "8px",
-      padding: "10px 150px 10px 20px",
+      padding: "10px 70px",
       position: "relative",
       textTransform: "none",
       fontWeight: 500,
@@ -70,67 +46,25 @@ const StyledButton = styled(MuiButton)(({ variant }) => {
 
       backgroundColor: "white",
       color: "#1D3452",
+      border: "1.5px solid #FF8FA3",
+      boxShadow: "3px 2px 0px #3A86FF",
+      color: "#3A86FF",
 
       "&:hover": {
         backgroundColor: "#F5F2F9",
         transition: "all 0.6s",
-        border: "1px solid #3A86FF",
       },
 
       "&:active": {
         color: "white",
+        border: "1.5px solid #3A86FF",
         backgroundColor: "#3A86FF",
-        border: "1px solid #FF8FA3",
+        boxShadow: "3px 3px 0px #f8b5c3",
       },
 
       "&.Mui-disabled": {
         backgroundColor: "#BDBDBD",
         color: "white",
-      },
-    };
-  } else if (variant === "warning") {
-    buttonStyles["&.MuiButton-root"] = {
-      ...buttonStyles["&.MuiButton-root"],
-
-      backgroundColor: "white",
-      color: "#1D3452",
-
-      "&:hover": {
-        backgroundColor: "#F5F2F9",
-        transition: "all 0.3s",
-        border: "1px solid #3A86FF",
-      },
-
-      "&:active": {
-        color: "white",
-        backgroundColor: "#3A86FF",
-        border: "1px solid #FF8FA3",
-      },
-
-      "&.Mui-disabled": {
-        backgroundColor: "#BDBDBD",
-        color: "white",
-      },
-    };
-  } else if (variant === "outlined") {
-    buttonStyles["&.MuiButton-root"] = {
-      ...buttonStyles["&.MuiButton-root"],
-
-      backgroundColor: "#8639B5",
-      color: "white",
-
-      "&:hover": {
-        backgroundColor: "#5E35B1",
-      },
-
-      "&:active": {
-        backgroundColor: "#7e4cd4",
-      },
-
-      "&.Mui-disabled": {
-        backgroundColor: "#1C1B1F1F",
-        color: "white",
-        border: "none",
       },
     };
   }
