@@ -1,9 +1,12 @@
-import MainPage from "./pages/MainPage";
+// import MainPage from "./pages/MainPage";
+
+import SignUp from "./pages/SignUp";
 
 const App = () => {
   return (
     <>
-      <MainPage />
+      <SignUp />
+      {/* <MainPage /> */}
     </>
   );
 };
