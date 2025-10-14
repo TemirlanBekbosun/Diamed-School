@@ -1,10 +1,10 @@
 import { Box, styled, Typography } from "@mui/material";
-import plajka from "../../assets/Plajka.svg";
-import logo from "../../assets/Diamelogo.svg";
-import rigth from "../../assets/RigthButton.svg";
-import PhtotDiana from "../../assets/DianaKaluman.png";
-import reacts from "../../assets/reactive.svg";
-import kletka from "../../assets/kletka.svg";
+import plajka from "../../assets/icons/Plajka.svg";
+import logo from "../../assets/icons/Diamelogo.svg";
+import rigth from "../../assets/icons/RigthButton.svg";
+import PhtotDiana from "../../assets/images/DianaKaluman.png";
+import reacts from "../../assets/icons/reactive.svg";
+import kletka from "../../assets/icons/kletka.svg";
 
 const Intro = () => {
   return (

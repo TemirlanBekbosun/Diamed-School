@@ -1,5 +1,11 @@
+import MainPage from "./pages/MainPage";
+
 const App = () => {
-  return <h1>Diamond School</h1>;
+  return (
+    <>
+      <MainPage />
+    </>
+  );
 };
 
 export default App;

@@ -8,7 +8,7 @@ import ConsultationForm from "../components/main/ConsultationForm";
 import Questions from "../components/main/Questions";
 import Footer from "../layout/Footer";
 
-const Mainpage = () => {
+const MainPage = () => {
   return (
     <>
       <Header />
@@ -25,4 +25,4 @@ const Mainpage = () => {
   );
 };
 
-export default Mainpage;
+export default MainPage;

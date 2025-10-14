@@ -1,5 +1,5 @@
 import { AppBar, Box, styled, Toolbar, Typography } from "@mui/material";
-import diameSchoollogo from "../assets/Diame.School.svg";
+import diameSchoollogo from "../assets/icons/DiameSchool.svg";
 const Header = () => {
   return (
     <Headers>

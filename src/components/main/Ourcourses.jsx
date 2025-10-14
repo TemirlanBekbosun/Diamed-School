@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { ArrowForward, Science, Biotech, Search } from "@mui/icons-material";
-import titleUnderlinee from "../../assets/Vector8.svg";
-import titleUnderlineer from "../../assets/Vector9.svg";
-import atomIcon from "../../assets/AtomContainer.svg";
-import sotyicon from "../../assets/SotyIcon.svg";
-import bioIcon from "../../assets/Bioicon.svg";
+import titleUnderlinee from "../../assets/icons/Vector8.svg";
+import titleUnderlineer from "../../assets/icons/Vector9.svg";
+import atomIcon from "../../assets/icons/AtomContainer.svg";
+import sotyicon from "../../assets/icons/Sotyicon.svg";
+import bioIcon from "../../assets/icons/BioIcon.svg";
 
-// Styled Components
 const MainContainer = styled.div`
   min-height: 100vh;
   padding: 64px 16px;
