@@ -1,12 +1,9 @@
-// import MainPage from "./pages/MainPage";
-
-import Input from "./components/UI/Input";
+import MainPage from "./pages/MainPage";
 
 const App = () => {
   return (
     <>
-      <Input />
-      {/* <MainPage /> */}
+      <MainPage />
     </>
   );
 };
