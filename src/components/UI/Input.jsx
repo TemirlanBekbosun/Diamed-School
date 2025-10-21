@@ -107,9 +107,10 @@ const InputLabelText = styled(Typography)(({ error }) => ({
 const StyledInput = styled(TextField)(({ error }) => ({
   "& .MuiOutlinedInput-root": {
     borderRadius: "8px",
+    backgroundColor: "white",
 
     "& fieldset": {
-      border: "1px solid #D4D0D0",
+      border: "1px solid #3A86FF",
     },
 
     "&:hover fieldset": {
