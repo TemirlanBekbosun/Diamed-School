@@ -30,7 +30,7 @@ const Headers = styled("header")(() => ({
   alignItems: "center",
   justifyContent: "space-between",
 
-  padding: "17.5px 60px",
+  padding: "13.5px 60px",
 }));
 const Nav = styled("nav")(() => ({
   display: "flex",

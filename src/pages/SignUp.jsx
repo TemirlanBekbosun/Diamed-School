@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Input from "../components/UI/Input";
 import Header from "../layout/Header";
 import Button from "../components/UI/Button";
-import { Checkbox } from "@mui/material";
 import Footer from "../layout/Footer";
+import Checkbox from "../components/UI/Checkbox";
 
 const SignUp = () => {
   return (
@@ -19,7 +19,7 @@ const SignUp = () => {
           <Input.Password placeholder="Повторите пароль" />
           <CheckboxContainer>
             <Checkbox />
-            <p>
+            <p style={{ marginTop: "5px", marginBottom: "30px" }}>
               Я подтверждаю ознакомление с Политикой
               <br /> обработки персональных данных и даю
               <br /> согласие на обработку персональных данных в порядке и на
@@ -44,7 +44,6 @@ const MainContainer = styled("div")(() => ({
   marginRight: "40px",
   textAlign: "center",
   borderRadius: "30px",
-
   padding: "60px 0",
   h1: {
     fontSize: "78px",
@@ -61,17 +60,16 @@ const MainInputContainer = styled("div")(() => ({
   width: "400px",
   textAlign: "center",
 }));
+
 const CheckboxContainer = styled("div")(() => ({
   display: "flex",
-  alignItems: "center",
-
+  alignItems: "flex-start",
+  gap: "10px",
   p: {
-    paddingRight: "10px",
+    margin: 0,
     textAlign: "start",
     fontSize: "18px",
     fontWeight: 400,
     color: "#1D3452",
   },
 }));
-
-
