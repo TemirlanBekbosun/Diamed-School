@@ -67,6 +67,32 @@ const StyledButton = styled(MuiButton)(({ variant }) => {
         color: "white",
       },
     };
+  } else if (variant === "outlined") {
+    buttonStyles["&.MuiButton-root"] = {
+      ...buttonStyles["&.MuiButton-root"],
+      color: "white",
+      border: "1.5px solid #3A86FF",
+      backgroundColor: "#3A86FF",
+      boxShadow: "3px 3px 0px #f8b5c3",
+
+      "&:hover": {
+        backgroundColor: "#2771e9",
+        transition: "all 0.6s",
+      },
+
+      "&:active": {
+        backgroundColor: "white",
+        color: "#1D3452",
+        border: "1.5px solid #FF8FA3",
+        boxShadow: "3px 2px 0px #3A86FF",
+        color: "#3A86FF",
+      },
+
+      "&.Mui-disabled": {
+        backgroundColor: "#BDBDBD",
+        color: "white",
+      },
+    };
   }
 
   return buttonStyles;

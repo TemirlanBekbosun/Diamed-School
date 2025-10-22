@@ -91,7 +91,7 @@ const Footer = () => {
               }
             />
           </FormLabelBlock>
-          <Button>Отправить заявку</Button>
+          <StyledButton>Отправить заявку</StyledButton>
         </Block3>
       </FooterContainer>
     </FooterWrapper>
@@ -180,6 +180,11 @@ const ContactRow = styled(Box)({
   alignItems: "center",
   gap: "8px",
 });
+const StyledButton = styled(Button)(() => ({
+  width: "74%",
+  display: "flex",
+  marginLeft: "80px",
+}));
 
 const StyledTextField = styled(TextField)(() => ({
   "& .MuiOutlinedInput-root": {
