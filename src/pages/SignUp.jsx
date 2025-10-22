@@ -29,7 +29,7 @@ const SignUp = () => {
           </CheckboxContainer>
         </MainInputContainer>
 
-        <Button>Регистрация</Button>
+        <Button variant="outlined">Регистрация</Button>
       </MainContainer>
       <Footer />
     </div>
