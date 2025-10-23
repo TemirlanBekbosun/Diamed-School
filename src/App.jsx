@@ -1,11 +1,5 @@
-import MainPage from "./pages/MainPage";
+import AppRouter from "./routes/AppRouter";
 
-const App = () => {
-  return (
-    <>
-      <MainPage />
-    </>
-  );
-};
+const App = () => <AppRouter />;
 
 export default App;

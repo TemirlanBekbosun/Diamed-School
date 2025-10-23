@@ -8,7 +8,6 @@ import Checkbox from "../components/UI/Checkbox";
 const SignUp = () => {
   return (
     <div>
-      <Header />
       <MainContainer>
         <h1>Регистрация</h1>
         <MainInputContainer>
@@ -39,9 +38,9 @@ const SignUp = () => {
 export default SignUp;
 
 const MainContainer = styled("div")(() => ({
-  background: "linear-gradient(180deg, #F2F7FB 20%, #629eff 80%)",
-  marginLeft: "40px",
-  marginRight: "40px",
+  background:
+    "linear-gradient(180deg, #F2F7FB 20%, hsl(217.07006369426753, 100%, 69.2156862745098%) 80%)",
+  margin: "0 60px 0 60px",
   textAlign: "center",
   borderRadius: "30px",
   padding: "60px 0",

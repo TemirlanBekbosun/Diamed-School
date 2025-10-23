@@ -83,7 +83,7 @@ const Footer = () => {
               control={<StyledCheckbox />}
               label={
                 <ConsentTypography>
-                  Я подтверждаю ознакомление с
+                  Я подтверждаю ознакомление с {""}
                   <StyledLink href="#">Политикой</StyledLink> обработки
                   персональных данных и даю согласие на обработку персональных
                   данных в порядке и на условиях, указанных в Политике.
@@ -100,7 +100,7 @@ const Footer = () => {
 
 export default Footer;
 const FooterWrapper = styled(Box)({
-  paddingBottom: "80px",
+  padding: "40px 60px 40px 60px",
   height: "80%",
   display: "flex",
   justifyContent: "center",
@@ -109,13 +109,13 @@ const FooterWrapper = styled(Box)({
 const FooterContainer = styled(Box)({
   width: "100%",
   display: "flex",
-  gap: "40px",
+  gap: "0px",
   justifyContent: "center",
 });
 
 const Block = styled(Box)({
   borderRadius: "30px",
-  padding: "60px 0px 60px 40px",
+
   width: "100%",
   display: "flex",
   flexDirection: "column",
@@ -124,17 +124,17 @@ const Block = styled(Box)({
 
 const Block2 = styled(Box)({
   borderRadius: "30px",
-  padding: "180px 0px",
+  padding: "123px 0px",
   width: "100%",
   display: "flex",
   flexDirection: "column",
-  gap: "24px",
+  gap: "14px",
 });
 
 const Block3 = styled(Box)({
   marginTop: "50px",
   borderRadius: "30px",
-  padding: "60px 40px 60px 0px",
+
   width: "100%",
   display: "flex",
   flexDirection: "column",
@@ -158,7 +158,7 @@ const ContactLabel = styled(Typography)({
 const ContactValue = styled(Typography)({
   fontSize: "23px",
   fontWeight: 400,
-  color: "#3366CC",
+  color: "#3A86FF",
   marginBottom: "8px",
 });
 
@@ -189,7 +189,8 @@ const StyledButton = styled(Button)(() => ({
 const StyledTextField = styled(TextField)(() => ({
   "& .MuiOutlinedInput-root": {
     backgroundColor: "#fdebf1",
-    width: "652px",
+
+    width: "clamp(10rem, 40vw, 40.75rem)",
     height: "60px",
     border: " 1px solid#FF8FA3",
     borderRadius: "13px",
@@ -216,16 +217,17 @@ const StyledTextField = styled(TextField)(() => ({
 }));
 
 const StyledCheckbox = styled(Checkbox)({
+  padding: "0 0 49px 0",
   color: "#FCE4EC",
   "&.Mui-checked": {
-    color: "#3366CC",
+    color: "#3A86FF",
   },
 });
 
 const ConsentTypography = styled(Typography)({
-  fontSize: "14px",
+  fontSize: "18px",
   fontWeight: 400,
-  color: "#555555",
+  color: "#1D3452",
   fontFamily: "Roboto, sans-serif",
   lineHeight: 1.4,
 });
@@ -234,7 +236,7 @@ const StyledLink = styled(Link)({
   color: "#555555",
   textDecoration: "underline",
   "&:hover": {
-    color: "#3366CC",
+    color: "#3A86FF",
   },
 });
 

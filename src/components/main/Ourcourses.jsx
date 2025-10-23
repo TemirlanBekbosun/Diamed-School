@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ArrowForward, Science, Biotech, Search } from "@mui/icons-material";
+import { useNavigate, useParams } from "react-router";
 import titleUnderlinee from "../../assets/icons/Vector8.svg";
 import titleUnderlineer from "../../assets/icons/Vector9.svg";
 import atomIcon from "../../assets/icons/AtomContainer.svg";
@@ -111,7 +112,10 @@ const CourseTitle = styled.h2`
   font-family: "Moderustic";
 `;
 
-const ArrowIcon = styled(ArrowForward)`
+// ArrowIcon: не пробрасывать isSelected в финальный svg DOM
+const ArrowIcon = styled(ArrowForward, {
+  shouldForwardProp: (prop) => prop !== "isSelected",
+})`
   font-size: 45px;
   color: ${(props) => (props.isSelected ? "#60A5FA" : "#1D3452")};
 `;
@@ -151,7 +155,10 @@ const TitleSection = styled.div`
   margin-bottom: 24px;
 `;
 
-const CourseTitleMain = styled.h1`
+// CourseTitleMain: не пробрасывать titleColor в DOM
+const CourseTitleMain = styled.h1.withConfig({
+  shouldForwardProp: (prop) => prop !== "titleColor",
+})`
   font-size: 44px;
   font-weight: 600;
   color: ${(props) => props.titleColor};
@@ -271,16 +278,23 @@ const BottomButton = styled.button`
 `;
 
 const Ourcourses = () => {
-  const [selectedCourse, setSelectedCourse] = useState("chemistry");
+  const navigate = useNavigate();
+  const { courseId } = useParams();
+  const [selectedCourse, setSelectedCourse] = useState(courseId || "chemistry");
+
+  useEffect(() => {
+    if (!courseId) return;
+    setSelectedCourse(courseId);
+  }, [courseId]);
 
   const courses = [
-    { id: "chemistry", number: "01", title: "Химия", color: "#3A86FF" },
+    { id: "chemistry", number: "01", title: "Химия", color: "#1D3452" },
     { id: "biology", number: "02", title: "Биология", color: "#1D3452" },
     { id: "tests", number: "03", title: "Тесты", color: "#1D3452" },
     { id: "books", number: "04", title: "Книги", color: "#1D3452" },
     { id: "cheatsheets", number: "05", title: "Шпоры", color: "#1D3452" },
   ];
-
+ 
   const courseDetails = {
     chemistry: {
       title: "Химия",
@@ -296,14 +310,57 @@ const Ourcourses = () => {
         { Icon: Biotech, color: "#60A5FA" },
       ],
     },
+    biology: {
+      title: "Биология",
+      titleColor: "#3A86FF",
+      subtitle: "с нуля до экзамена",
+      description:
+        "Полная программа подготовки по биологии: теория, задания, тренажёры и проверка знаний.",
+      price: "5000",
+      currency: "сом месяц",
+      icons: [
+        { Icon: Biotech, color: "#60A5FA" },
+        { Icon: Search, color: "#60A5FA" },
+        { Icon: Science, color: "#60A5FA" },
+      ],
+    },
+    tests: {
+      title: "Тесты",
+      titleColor: "#FF8FA3",
+      subtitle: "онлайн практика",
+      description:
+        "Большая база тематических и экзаменационных тестов с моментальной проверкой и разбором.",
+      price: "бесплатно",
+      currency: "",
+      icons: [{ Icon: Search, color: "#60A5FA" }],
+    },
+    books: {
+      title: "Книги",
+      titleColor: "#3A86FF",
+      subtitle: "лучшие материалы",
+      description:
+        "Подборка книг и конспектов для самостоятельной подготовки по химии и биологии.",
+      price: "бесплатно",
+      currency: "",
+      icons: [{ Icon: Science, color: "#60A5FA" }],
+    },
+    cheatsheets: {
+      title: "Шпоры",
+      titleColor: "#1D3452",
+      subtitle: "выжимки формул",
+      description:
+        "Краткие шпаргалки по ключевым темам: формулы, определения, схемы.",
+      price: "бесплатно",
+      currency: "",
+      icons: [{ Icon: Science, color: "#60A5FA" }],
+    },
   };
 
-  const details = courseDetails[selectedCourse];
+  const details = courseDetails[selectedCourse] || courseDetails.chemistry;
 
   return (
     <MainContainer>
       <Container>
-        {/* Header */}
         <HeaderSection>
           <Title>
             Наши курсы
@@ -311,14 +368,15 @@ const Ourcourses = () => {
           </Title>
         </HeaderSection>
 
-        {/* Main Content Grid */}
         <MainGrid>
-          {/* Courses List */}
           <CoursesList>
             {courses.map((course, index) => (
               <CourseCard
                 key={course.id}
-                onClick={() => setSelectedCourse(course.id)}
+                onClick={() => {
+                  setSelectedCourse(course.id);
+                  navigate(`/courses/${course.id}`);
+                }}
                 isSelected={course.id === selectedCourse}
               >
                 <CourseCardContent>
@@ -362,8 +420,14 @@ const Ourcourses = () => {
 
               {/* Price */}
               <PriceSection>
-                <Price>{details.price}</Price>
-                <Currency>{details.currency}</Currency>
+                {details.price && (
+                  <>
+                    <Price>{details.price}</Price>
+                    {details.currency && (
+                      <Currency>{details.currency}</Currency>
+                    )}
+                  </>
+                )}
                 <Iconstyled src={sotyicon} />
               </PriceSection>
               <div className="bottom-icons">

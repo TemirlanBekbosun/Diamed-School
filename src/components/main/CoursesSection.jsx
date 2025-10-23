@@ -1,4 +1,3 @@
-
 import { styled } from '@mui/material/styles';
 import { Box, Stack, Typography } from '@mui/material';
 
@@ -62,7 +61,9 @@ const CardsGrid = styled(Box)(({ theme }) => ({
     gridTemplateColumns: 'repeat(4, 1fr)',
   },
 }));
-const CardWrapper = styled(Box)(({ isRotated }) => ({
+const CardWrapper = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "isRotated",
+})(({ isRotated }) => ({
   position: "relative",
   borderRadius: "20px",
   transition: "transform 0.45s cubic-bezier(0.4,0,0.2,1), box-shadow 0.45s cubic-bezier(0.4,0,0.2,1)",
@@ -84,12 +85,12 @@ const CardWrapper = styled(Box)(({ isRotated }) => ({
     pointerEvents: "none",
   },
   "&:hover": {
-    transform: "translate(-24px, -12px) rotateZ(-3deg) scale(1.03)", // смещение влево и поворот влево
+    transform: "translate(-24px, -12px) rotateZ(-3deg) scale(1.03)",
     boxShadow: "0 16px 40px 0 rgba(58,134,255,0.18)",
     zIndex: 2,
   },
   "&:hover::before": {
-    opacity: 1, // только появляется, но не двигается
+    opacity: 1,
   },
   "& > *": {
     position: "relative",

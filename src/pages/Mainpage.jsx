@@ -11,10 +11,8 @@ import Footer from "../layout/Footer";
 const MainPage = () => {
   return (
     <>
-      <Header />
       <Intro />
       <CoursesSection />
-      
       <Ourcourses />
       <ReviewsSection />
       <NewsAndArticles />

@@ -1,23 +1,29 @@
 import { AppBar, Box, styled, Toolbar, Typography } from "@mui/material";
 import diameSchoollogo from "../assets/icons/DiameSchool.svg";
 import Button from "../components/UI/Button";
+import { useNavigate, NavLink as RouterNavLink } from "react-router";
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleNavigateToSignIn = () => {
+    navigate("/signup");
+  };
+
   return (
     <Headers>
       <img src={diameSchoollogo} alt="logo" />
       <Nav>
-        <NavLink href="">Главная</NavLink>
-        <NavLink href="">О центре</NavLink>
-        <NavLink href="">Курсы</NavLink>
-
-        <NavLink href="">Преподаватели</NavLink>
-        <NavLink href="">Отзывы</NavLink>
-        <NavLink href="">Контакты</NavLink>
+        <StyledNavLink to="/">Главная</StyledNavLink>
+        <StyledNavLink to="/about">О центре</StyledNavLink>
+        <StyledNavLink to="/courses">Курсы</StyledNavLink>
+        <StyledNavLink to="/teachers">Преподаватели</StyledNavLink>
+        <StyledNavLink to="/reviews">Отзывы</StyledNavLink>
+        <StyledNavLink to="/contacts">Контакты</StyledNavLink>
       </Nav>
 
       <ButtonBlock>
         <Signin>Вход</Signin>
-        <Button>Регистрация</Button>
+        <Button onClick={handleNavigateToSignIn}>Регистрация</Button>
       </ButtonBlock>
     </Headers>
   );
@@ -52,11 +58,14 @@ const Signin = styled(Typography)(() => ({
   cursor: "pointer",
 }));
 
-const NavLink = styled(Typography)(() => ({
+const StyledNavLink = styled(RouterNavLink)(() => ({
   fontWeight: 400,
-
-  fontStyle: "regular",
+  fontStyle: "normal",
   fontSize: "18px",
   color: "#1D3452",
+  textDecoration: "none",
   cursor: "pointer",
+  "&.active": {
+    color: "#3A86FF",
+  },
 }));
