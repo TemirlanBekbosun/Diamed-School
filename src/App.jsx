@@ -1,15 +1,5 @@
-import { Routes, Route } from "react-router";
-import MainPage from "./pages/Mainpage";
-import NotFound from "./pages/NotFound";
+import AppRouter from "./routes/AppRouter";
 
-const App = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/courses/:courseId" element={<MainPage />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  );
-};
+const App = () => <AppRouter />;
 
 export default App;

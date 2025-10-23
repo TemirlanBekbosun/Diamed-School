@@ -6,6 +6,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: #f2f7fb;
+}
 
 
 
@@ -15,7 +18,7 @@
 /* CSS Variables for Typography */
 :root {
   /* H1 Typography */
-  --h1-font-family: 'Moderustic', Helvetica;
+  --h1-font-family: "Moderustic", Helvetica;
   --h1-font-weight: 700;
   --h1-font-size: 48px;
   --h1-line-height: 56px;
@@ -23,7 +26,7 @@
   --h1-font-style: normal;
 
   /* H2 Typography */
-  --h2-font-family: 'Moderustic', Helvetica;
+  --h2-font-family: "Moderustic", Helvetica;
   --h2-font-weight: 700;
   --h2-font-size: 40px;
   --h2-line-height: 48px;
@@ -31,7 +34,7 @@
   --h2-font-style: normal;
 
   /* H3 Typography */
-  --h3-font-family: 'Moderustic', Helvetica;
+  --h3-font-family: "Moderustic", Helvetica;
   --h3-font-weight: 500;
   --h3-font-size: 24px;
   --h3-line-height: 30px;
@@ -39,7 +42,7 @@
   --h3-font-style: normal;
 
   /* Body Typography */
-  ---font-family: 'Cygre-Regular', Helvetica;
+  ---font-family: "Cygre-Regular", Helvetica;
   ---font-weight: 400;
   ---font-size: 18px;
   ---line-height: 22px;
@@ -47,15 +50,15 @@
   ---font-style: normal;
 
   /* Colors */
-  --color-primary: #1D3352;
-  --color-secondary: #FF8FA3;
-  --color-accent: #3A86FF;
-  --color-yellow: #EEDE70;
-  --color-pink-light: #FFEEF2;
-  --color-pink-medium: #FFA8B8;
+  --color-primary: #1d3352;
+  --color-secondary: #ff8fa3;
+  --color-accent: #3a86ff;
+  --color-yellow: #eede70;
+  --color-pink-light: #ffeef2;
+  --color-pink-medium: #ffa8b8;
   --color-black: #000000;
-  --color-white: #FFFFFF;
-  --color-text-primary: #1D3352;
+  --color-white: #ffffff;
+  --color-text-primary: #1d3352;
 }
 
 /* Animation Utilities */

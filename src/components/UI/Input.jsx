@@ -8,9 +8,8 @@ import {
   IconButton,
 } from "@mui/material";
 import ErrorOutlineRoundedIcon from "@mui/icons-material/ErrorOutlineRounded";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-
+import Eye from "../../assets/icons/Eye.svg";
+import EyeClosed from "../../assets/icons/EyeClosed.svg";
 const Input = forwardRef(
   (
     {
@@ -77,7 +76,11 @@ Input.Password = forwardRef(
           endAdornment: (
             <InputAdornment position="end">
               <IconButton onClick={toggleVisibility} edge="end">
-                {showPassword ? <VisibilityOff /> : <Visibility />}
+                {showPassword ? (
+                  <img src={EyeClosed} alt="" />
+                ) : (
+                  <img src={Eye} alt="" />
+                )}
               </IconButton>
             </InputAdornment>
           ),
@@ -106,10 +109,11 @@ const InputLabelText = styled(Typography)(({ error }) => ({
 
 const StyledInput = styled(TextField)(({ error }) => ({
   "& .MuiOutlinedInput-root": {
-    borderRadius: "8px",
+    borderRadius: "15px",
+    backgroundColor: "white",
 
     "& fieldset": {
-      border: "1px solid #D4D0D0",
+      border: "1px solid #3A86FF",
     },
 
     "&:hover fieldset": {

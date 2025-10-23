@@ -1,22 +1,29 @@
 import { AppBar, Box, styled, Toolbar, Typography } from "@mui/material";
 import diameSchoollogo from "../assets/icons/DiameSchool.svg";
+import Button from "../components/UI/Button";
+import { useNavigate, NavLink as RouterNavLink } from "react-router";
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleNavigateToSignIn = () => {
+    navigate("/signup");
+  };
+
   return (
     <Headers>
       <img src={diameSchoollogo} alt="logo" />
       <Nav>
-        <NavLink href="">Главная</NavLink>
-        <NavLink href="">О центре</NavLink>
-        <NavLink href="">Курсы</NavLink>
-
-        <NavLink href="">Преподаватели</NavLink>
-        <NavLink href="">Отзывы</NavLink>
-        <NavLink href="">Контакты</NavLink>
+        <StyledNavLink to="/">Главная</StyledNavLink>
+        <StyledNavLink to="/about">О центре</StyledNavLink>
+        <StyledNavLink to="/courses">Курсы</StyledNavLink>
+        <StyledNavLink to="/teachers">Преподаватели</StyledNavLink>
+        <StyledNavLink to="/reviews">Отзывы</StyledNavLink>
+        <StyledNavLink to="/contacts">Контакты</StyledNavLink>
       </Nav>
 
       <ButtonBlock>
         <Signin>Вход</Signin>
-        <Button>Регистрация</Button>
+        <Button onClick={handleNavigateToSignIn}>Регистрация</Button>
       </ButtonBlock>
     </Headers>
   );
@@ -29,7 +36,7 @@ const Headers = styled("header")(() => ({
   alignItems: "center",
   justifyContent: "space-between",
 
-  padding: "17.5px 60px",
+  padding: "13.5px 60px",
 }));
 const Nav = styled("nav")(() => ({
   display: "flex",
@@ -42,27 +49,6 @@ const ButtonBlock = styled("div")(() => ({
   gap: "40px",
 }));
 
-const Button = styled("button")(() => ({
-  width: "163px",
-  height: "53px",
-  background: "#F5F2F9",
-  borderRadius: "8px",
-  color: "#1D3452",
-  boxShadow: "3px 3px 0px #3A86FF",
-  transition:
-    "transform 0.08s cubic-bezier(0.4,0,0.2,1), box-shadow 0.08s cubic-bezier(0.4,0,0.2,1)",
-  border: "1px #FF8FA3 solid",
-  fontWeight: 400,
-  fontStyle: "regular",
-  fontSize: "18px",
-  fontFamily: "Moderustic",
-  cursor: "pointer",
-  outline: "none",
-  "&:active": {
-    transform: "scale(0.96)",
-    boxShadow: "1px 1px 0px #3A86FF",
-  },
-}));
 const Signin = styled(Typography)(() => ({
   fontWeight: 700,
 
@@ -72,11 +58,14 @@ const Signin = styled(Typography)(() => ({
   cursor: "pointer",
 }));
 
-const NavLink = styled(Typography)(() => ({
+const StyledNavLink = styled(RouterNavLink)(() => ({
   fontWeight: 400,
-
-  fontStyle: "regular",
+  fontStyle: "normal",
   fontSize: "18px",
   color: "#1D3452",
+  textDecoration: "none",
   cursor: "pointer",
+  "&.active": {
+    color: "#3A86FF",
+  },
 }));

@@ -112,7 +112,10 @@ const CourseTitle = styled.h2`
   font-family: "Moderustic";
 `;
 
-const ArrowIcon = styled(ArrowForward)`
+// ArrowIcon: не пробрасывать isSelected в финальный svg DOM
+const ArrowIcon = styled(ArrowForward, {
+  shouldForwardProp: (prop) => prop !== "isSelected",
+})`
   font-size: 45px;
   color: ${(props) => (props.isSelected ? "#60A5FA" : "#1D3452")};
 `;
@@ -152,7 +155,10 @@ const TitleSection = styled.div`
   margin-bottom: 24px;
 `;
 
-const CourseTitleMain = styled.h1`
+// CourseTitleMain: не пробрасывать titleColor в DOM
+const CourseTitleMain = styled.h1.withConfig({
+  shouldForwardProp: (prop) => prop !== "titleColor",
+})`
   font-size: 44px;
   font-weight: 600;
   color: ${(props) => props.titleColor};

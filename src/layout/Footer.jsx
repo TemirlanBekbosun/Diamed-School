@@ -1,472 +1,247 @@
-import React from "react";
+import { styled } from "@mui/material/styles";
 import {
   Box,
   Typography,
-  Grid,
   TextField,
-  Button,
   Checkbox,
   FormControlLabel,
   Link,
 } from "@mui/material";
-import {
-  Email as EmailIcon,
-  Phone as PhoneIcon,
-  LocationOn as LocationIcon,
-} from "@mui/icons-material";
+import { LocationOn as LocationIcon } from "@mui/icons-material";
+import WhatsApp from "../assets/icons/whatapp.svg";
+import Instagram from "../assets/icons/instagram.svg";
+import Telegram from "../assets/icons/telegram.svg";
+import Email from "../assets/icons/Email.svg";
+import Call from "../assets/icons/Call.svg";
+import Button from "../components/UI/Button";
 
 const Footer = () => {
   return (
-    <Box
-      sx={{
-        backgroundColor: "#F8F8F8",
-        py: 10,
-        px: 12.5,
-      }}
-    >
-      <Box
-        sx={{
-          maxWidth: "1200px",
-          mx: "auto",
-        }}
-      >
-        <Grid container spacing={10}>
-          {/* Левая колонка - Контактная информация */}
-          <Grid item xs={12} md={5}>
-            <Box>
-              {/* Заголовок */}
-              <Typography
-                sx={{
-                  fontSize: "48px",
-                  fontWeight: 700,
-                  color: "#212B36",
-                  fontFamily: "Roboto, sans-serif",
-                  mb: 4,
-                }}
-              >
-                Контакты
-              </Typography>
-
-              {/* Email */}
-              <Box sx={{ mb: 3 }}>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontWeight: 500,
-                    color: "#212B36",
-                    fontFamily: "Roboto, sans-serif",
-                    mb: 1,
-                  }}
-                >
-                  Email
-                </Typography>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <EmailIcon
-                    sx={{
-                      fontSize: "20px",
-                      color: "#212B36",
-                    }}
-                  />
-                  <Typography
-                    sx={{
-                      fontSize: "16px",
-                      fontWeight: 400,
-                      color: "#3366CC",
-                      fontFamily: "Roboto, sans-serif",
-                    }}
-                  >
-                    info@diamed-school.kg
-                  </Typography>
-                </Box>
-              </Box>
-
-              {/* Телефон */}
-              <Box sx={{ mb: 3 }}>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontWeight: 500,
-                    color: "#212B36",
-                    fontFamily: "Roboto, sans-serif",
-                    mb: 1,
-                  }}
-                >
-                  Телефон
-                </Typography>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1,
-                    mb: 0.5,
-                  }}
-                >
-                  <PhoneIcon
-                    sx={{
-                      fontSize: "20px",
-                      color: "#212B36",
-                    }}
-                  />
-                  <Typography
-                    sx={{
-                      fontSize: "16px",
-                      fontWeight: 400,
-                      color: "#3366CC",
-                      fontFamily: "Roboto, sans-serif",
-                    }}
-                  >
-                    +996 (555) 808 - 001
-                  </Typography>
-                </Box>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <PhoneIcon
-                    sx={{
-                      fontSize: "20px",
-                      color: "#212B36",
-                    }}
-                  />
-                  <Typography
-                    sx={{
-                      fontSize: "16px",
-                      fontWeight: 400,
-                      color: "#3366CC",
-                      fontFamily: "Roboto, sans-serif",
-                    }}
-                  >
-                    +996 (505) 888 - 080
-                  </Typography>
-                </Box>
-              </Box>
-
-              {/* Адрес */}
-              <Box sx={{ mb: 3 }}>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontWeight: 500,
-                    color: "#212B36",
-                    fontFamily: "Roboto, sans-serif",
-                    mb: 1,
-                  }}
-                >
-                  Адрес
-                </Typography>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <LocationIcon
-                    sx={{
-                      fontSize: "20px",
-                      color: "#212B36",
-                    }}
-                  />
-                  <Typography
-                    sx={{
-                      fontSize: "16px",
-                      fontWeight: 400,
-                      color: "#3366CC",
-                      fontFamily: "Roboto, sans-serif",
-                    }}
-                  >
-                    г. Бишкек, ул. Науки, 5
-                  </Typography>
-                </Box>
-              </Box>
-
-              {/* Рабочие дни */}
-              <Box sx={{ mb: 3 }}>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontWeight: 500,
-                    color: "#212B36",
-                    fontFamily: "Roboto, sans-serif",
-                    mb: 1,
-                  }}
-                >
-                  Наши рабочие дни:
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "16px",
-                    fontWeight: 400,
-                    color: "#3366CC",
-                    fontFamily: "Roboto, sans-serif",
-                    mb: 0.5,
-                  }}
-                >
-                  Пн - Чт, Сб - Вс: 11:00 - 18:00
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "16px",
-                    fontWeight: 400,
-                    color: "#3366CC",
-                    fontFamily: "Roboto, sans-serif",
-                  }}
-                >
-                  Пт: выходной
-                </Typography>
-              </Box>
-
-              {/* Мессенджеры */}
-              <Box>
-                <Typography
-                  sx={{
-                    fontSize: "18px",
-                    fontWeight: 500,
-                    color: "#212B36",
-                    fontFamily: "Roboto, sans-serif",
-                    mb: 2,
-                  }}
-                >
-                  Мессенджеры
-                </Typography>
-                <Box sx={{ display: "flex", gap: 2 }}>
-                  {/* WhatsApp */}
-                  <Box
-                    sx={{
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "50%",
-                      backgroundColor: "#25D366",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        color: "white",
-                        fontSize: "20px",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      W
-                    </Typography>
-                  </Box>
-
-                  {/* Instagram */}
-                  <Box
-                    sx={{
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "50%",
-                      background:
-                        "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        color: "white",
-                        fontSize: "20px",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      I
-                    </Typography>
-                  </Box>
-
-                  {/* Telegram */}
-                  <Box
-                    sx={{
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "50%",
-                      backgroundColor: "#0088CC",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        color: "white",
-                        fontSize: "20px",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      T
-                    </Typography>
-                  </Box>
-                </Box>
-              </Box>
-            </Box>
-          </Grid>
-
-          {/* Правая колонка - Форма обратной связи */}
-          <Grid item xs={12} md={7}>
-            <Box>
-              {/* Поля формы */}
-              <Box sx={{ mb: 3 }}>
-                <TextField
-                  placeholder="Имя"
-                  fullWidth
-                  sx={{
-                    mb: 2.5,
-                    "& .MuiOutlinedInput-root": {
-                      backgroundColor: "#FCE4EC",
-                      borderRadius: "8px",
-                      height: "50px",
-                      "& fieldset": {
-                        borderColor: "#FCE4EC",
-                        borderWidth: "1px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#FCE4EC",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FCE4EC",
-                      },
-                    },
-                    "& .MuiInputBase-input": {
-                      fontSize: "16px",
-                      color: "#212B36",
-                      "&::placeholder": {
-                        color: "#919EAB",
-                        opacity: 1,
-                      },
-                    },
-                  }}
-                />
-                <TextField
-                  placeholder="Email"
-                  fullWidth
-                  sx={{
-                    mb: 2.5,
-                    "& .MuiOutlinedInput-root": {
-                      backgroundColor: "#FCE4EC",
-                      borderRadius: "8px",
-                      height: "50px",
-                      "& fieldset": {
-                        borderColor: "#FCE4EC",
-                        borderWidth: "1px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#FCE4EC",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FCE4EC",
-                      },
-                    },
-                    "& .MuiInputBase-input": {
-                      fontSize: "16px",
-                      color: "#212B36",
-                      "&::placeholder": {
-                        color: "#919EAB",
-                        opacity: 1,
-                      },
-                    },
-                  }}
-                />
-                <TextField
-                  placeholder="Номер"
-                  fullWidth
-                  sx={{
-                    mb: 3,
-                    "& .MuiOutlinedInput-root": {
-                      backgroundColor: "#FCE4EC",
-                      borderRadius: "8px",
-                      height: "50px",
-                      "& fieldset": {
-                        borderColor: "#FCE4EC",
-                        borderWidth: "1px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#FCE4EC",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FCE4EC",
-                      },
-                    },
-                    "& .MuiInputBase-input": {
-                      fontSize: "16px",
-                      color: "#212B36",
-                      "&::placeholder": {
-                        color: "#919EAB",
-                        opacity: 1,
-                      },
-                    },
-                  }}
-                />
-              </Box>
-
-              {/* Чекбокс согласия */}
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    sx={{
-                      color: "#FCE4EC",
-                      "&.Mui-checked": {
-                        color: "#3366CC",
-                      },
-                    }}
-                  />
-                }
-                label={
-                  <Typography
-                    sx={{
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      color: "#555555",
-                      fontFamily: "Roboto, sans-serif",
-                      lineHeight: 1.4,
-                    }}
-                  >
-                    Я подтверждаю ознакомление с{" "}
-                    <Link
-                      href="#"
-                      sx={{
-                        color: "#555555",
-                        textDecoration: "underline",
-                        "&:hover": {
-                          color: "#3366CC",
-                        },
-                      }}
-                    >
-                      Политикой
-                    </Link>{" "}
-                    обработки персональных данных и даю согласие на обработку
-                    персональных данных в порядке и на условиях, указанных в
-                    Политике.
-                  </Typography>
-                }
-                sx={{
-                  alignItems: "flex-start",
-                  mb: 3,
-                }}
+    <FooterWrapper>
+      <FooterContainer>
+        <Block>
+          <ContactTitle>Контакты</ContactTitle>
+          <Box>
+            <ContactLabel>Email</ContactLabel>
+            <ContactRow>
+              <img
+                src={Email}
+                alt=""
+                width={25}
+                style={{ marginBottom: "5px" }}
               />
-
-              {/* Кнопка отправки */}
-              <Button
-                variant="contained"
-                fullWidth
-                sx={{
-                  backgroundColor: "#3366CC",
-                  color: "#FFFFFF",
-                  fontSize: "16px",
-                  fontWeight: 500,
-                  fontFamily: "Roboto, sans-serif",
-                  height: "50px",
-                  borderRadius: "8px",
-                  textTransform: "none",
-                  "&:hover": {
-                    backgroundColor: "#2C5AA0",
-                  },
-                }}
-              >
-                Отправить заявку
-              </Button>
+              <ContactValue>info@diamed-school.kg</ContactValue>
+            </ContactRow>
+          </Box>
+          <Box>
+            <ContactLabel>Телефон</ContactLabel>
+            <ContactRow>
+              <img src={Call} alt="" />
+              <ContactValue>+996 (555) 808 - 001</ContactValue>
+            </ContactRow>
+            <ContactRow>
+              <img src={Call} alt="" />
+              <ContactValue>+996 (505) 888 - 080</ContactValue>
+            </ContactRow>
+            <Box>
+              <ContactLabel sx={{ marginTop: "30px" }}>Адрес</ContactLabel>
+              <ContactRow>
+                <LocationIcon sx={{ fontSize: "20px", color: "#212B36" }} />
+                <ContactValue>г. Бишкек, ул. Науки, 5</ContactValue>
+              </ContactRow>
             </Box>
-          </Grid>
-        </Grid>
-      </Box>
-    </Box>
+          </Box>
+        </Block>
+        <Block2>
+          <MessengerTitle>Мессенджеры</MessengerTitle>
+          <MessengerIcons>
+            <Box>
+              <img src={WhatsApp} alt="" />
+            </Box>
+            <Box>
+              <img src={Instagram} alt="" />
+            </Box>
+            <Box>
+              <img src={Telegram} alt="" />
+            </Box>
+          </MessengerIcons>
+          <Box>
+            <ContactLabel>Наши рабочие дни:</ContactLabel>
+            <ContactValue sx={{ marginBottom: "8px" }}>
+              <span style={{ color: "#FF8FA3" }}>Пн - Чт, Сб - Вс:</span> 11:00
+              - 18:00
+            </ContactValue>
+            <ContactValue>Пт: выходной</ContactValue>
+          </Box>
+        </Block2>
+        <Block3>
+          <StyledTextField placeholder="Имя" fullWidth />
+          <StyledTextField placeholder="Email" fullWidth />
+          <StyledTextField placeholder="Номер" fullWidth />
+          <FormLabelBlock>
+            <FormControlLabel
+              control={<StyledCheckbox />}
+              label={
+                <ConsentTypography>
+                  Я подтверждаю ознакомление с {""}
+                  <StyledLink href="#">Политикой</StyledLink> обработки
+                  персональных данных и даю согласие на обработку персональных
+                  данных в порядке и на условиях, указанных в Политике.
+                </ConsentTypography>
+              }
+            />
+          </FormLabelBlock>
+          <StyledButton>Отправить заявку</StyledButton>
+        </Block3>
+      </FooterContainer>
+    </FooterWrapper>
   );
 };
 
 export default Footer;
+const FooterWrapper = styled(Box)({
+  padding: "40px 60px 40px 60px",
+  height: "80%",
+  display: "flex",
+  justifyContent: "center",
+});
+
+const FooterContainer = styled(Box)({
+  width: "100%",
+  display: "flex",
+  gap: "0px",
+  justifyContent: "center",
+});
+
+const Block = styled(Box)({
+  borderRadius: "30px",
+
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: "24px",
+});
+
+const Block2 = styled(Box)({
+  borderRadius: "30px",
+  padding: "123px 0px",
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: "14px",
+});
+
+const Block3 = styled(Box)({
+  marginTop: "50px",
+  borderRadius: "30px",
+
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: "24px",
+});
+
+const ContactTitle = styled(Typography)({
+  fontSize: "78px",
+  fontWeight: 500,
+  color: "#212B36",
+  marginBottom: "33px",
+});
+
+const ContactLabel = styled(Typography)({
+  fontSize: "24px",
+  fontWeight: 500,
+  color: "#212B36",
+  marginBottom: "15px",
+});
+
+const ContactValue = styled(Typography)({
+  fontSize: "23px",
+  fontWeight: 400,
+  color: "#3A86FF",
+  marginBottom: "8px",
+});
+
+const MessengerTitle = styled(Typography)({
+  fontSize: "24px",
+  fontWeight: 500,
+  color: "#212B36",
+  marginTop: "50px",
+});
+
+const MessengerIcons = styled(Box)({
+  display: "flex",
+  gap: "16px",
+  marginBottom: "100px",
+});
+
+const ContactRow = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  gap: "8px",
+});
+const StyledButton = styled(Button)(() => ({
+  width: "74%",
+  display: "flex",
+  marginLeft: "80px",
+}));
+
+const StyledTextField = styled(TextField)(() => ({
+  "& .MuiOutlinedInput-root": {
+    backgroundColor: "#fdebf1",
+
+    width: "clamp(10rem, 40vw, 40.75rem)",
+    height: "60px",
+    border: " 1px solid#FF8FA3",
+    borderRadius: "13px",
+    height: "50px",
+    "& fieldset": {
+      borderColor: "#FCE4EC",
+      borderWidth: "1px",
+    },
+    "&:hover fieldset": {
+      borderColor: "#FCE4EC",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#FCE4EC",
+    },
+  },
+  "& .MuiInputBase-input": {
+    fontSize: "16px",
+    color: "#212B36",
+    "&::placeholder": {
+      color: "#919EAB",
+      opacity: 1,
+    },
+  },
+}));
+
+const StyledCheckbox = styled(Checkbox)({
+  padding: "0 0 49px 0",
+  color: "#FCE4EC",
+  "&.Mui-checked": {
+    color: "#3A86FF",
+  },
+});
+
+const ConsentTypography = styled(Typography)({
+  fontSize: "18px",
+  fontWeight: 400,
+  color: "#1D3452",
+  fontFamily: "Roboto, sans-serif",
+  lineHeight: 1.4,
+});
+
+const StyledLink = styled(Link)({
+  color: "#555555",
+  textDecoration: "underline",
+  "&:hover": {
+    color: "#3A86FF",
+  },
+});
+
+const FormLabelBlock = styled(Box)({
+  alignItems: "flex-start",
+  marginBottom: "24px",
+  display: "flex",
+});
