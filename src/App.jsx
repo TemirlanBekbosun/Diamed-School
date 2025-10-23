@@ -1,13 +1,14 @@
-// import MainPage from "./pages/MainPage";
-
-import Input from "./components/UI/Input";
+import { Routes, Route } from "react-router";
+import MainPage from "./pages/Mainpage";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
-    <>
-      <Input />
-      {/* <MainPage /> */}
-    </>
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/courses/:courseId" element={<MainPage />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 
