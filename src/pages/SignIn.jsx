@@ -7,7 +7,6 @@ import Footer from "../layout/Footer";
 const SignIn = () => {
   return (
     <div>
-      <Header />
       <MainContainer>
         <h1>Вход</h1>
         <MainInputContainer>

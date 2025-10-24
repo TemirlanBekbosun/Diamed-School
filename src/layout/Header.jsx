@@ -5,8 +5,11 @@ import { useNavigate, NavLink as RouterNavLink } from "react-router";
 const Header = () => {
   const navigate = useNavigate();
 
+  const handleNavigateToSignUp = () => {
+    navigate("/sign-up");
+  };
   const handleNavigateToSignIn = () => {
-    navigate("/signup");
+    navigate("/sign-in");
   };
 
   return (
@@ -22,8 +25,8 @@ const Header = () => {
       </Nav>
 
       <ButtonBlock>
-        <Signin>Вход</Signin>
-        <Button onClick={handleNavigateToSignIn}>Регистрация</Button>
+        <Signin onClick={handleNavigateToSignIn}>Вход</Signin>
+        <Button onClick={handleNavigateToSignUp}>Регистрация</Button>
       </ButtonBlock>
     </Headers>
   );
