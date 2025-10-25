@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router";
 import NotFound from "@src/pages/NotFound";
-import MainPage from "../pages/Mainpage";
+import MainPage from "../pages/MainPage";
 import SignUp from "../pages/SignUp";
 import MainLayout from "../layout/main/MainLayout";
 import UserLayout from "../layout/user/userLayout.jsx";
