@@ -1,6 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
-// Анимация для вращения
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -25,7 +24,6 @@ const pulse = keyframes`
   }
 `;
 
-// Контейнер для всего загрузчика
 const LoaderWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -33,10 +31,9 @@ const LoaderWrapper = styled.div`
   width: 200px;
   height: 200px;
   position: relative;
-  background-color: #0a192f; // Темно-синий фон, как в видео
+  background-color: #0a192f;
 `;
 
-// Внешнее вращающееся кольцо
 const OuterRing = styled.div`
   position: absolute;
   width: 100%;
@@ -45,16 +42,14 @@ const OuterRing = styled.div`
   animation: ${rotate} 8s linear infinite;
 `;
 
-// Внутреннее кольцо с сегментами
 const InnerRing = styled.div`
   position: absolute;
   width: 70%;
   height: 70%;
   border-radius: 50%;
-  animation: ${rotate} 5s linear infinite reverse; // Вращается в другую сторону
+  animation: ${rotate} 5s linear infinite reverse;
 `;
 
-// Стили для рисок (насечек)
 const Tick = styled.div`
   position: absolute;
   width: 2px;
@@ -62,10 +57,9 @@ const Tick = styled.div`
   background-color: #00ffff;
   top: 0;
   left: 50%;
-  transform-origin: 50% 100px; // 100px - половина ширины LoaderWrapper
+  transform-origin: 50% 100px;
 `;
 
-// Стили для светящихся сегментов
 const Segment = styled.div`
   position: absolute;
   width: 30px;
@@ -73,14 +67,12 @@ const Segment = styled.div`
   background-color: #00ffff;
   box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
   border-radius: 4px;
-  top: -6px; // Половина высоты сегмента
+  top: -6px;
   left: 50%;
-  margin-left: -15px; // Половина ширины сегмента
-  transform-origin: 50% 70px; // 70px - половина ширины InnerRing
+  margin-left: -15px;
+  transform-origin: 50% 70px;
 `;
 
-
-// Центральный пульсирующий круг
 const CenterCircle = styled.div`
   width: 40%;
   height: 40%;
@@ -90,11 +82,9 @@ const CenterCircle = styled.div`
   animation: ${pulse} 2s infinite ease-in-out;
 `;
 
-
 const ThreeScene = () => {
-  // Создаем массивы для рендеринга рисок и сегментов
-  const ticks = Array.from({ length: 60 }); // 60 рисок по кругу
-  const segments = Array.from({ length: 8 }); // 8 сегментов
+  const ticks = Array.from({ length: 60 });
+  const segments = Array.from({ length: 8 });
 
   return (
     <LoaderWrapper>
@@ -108,10 +98,7 @@ const ThreeScene = () => {
       </OuterRing>
       <InnerRing>
         {segments.map((_, i) => (
-           <Segment
-             key={i}
-             style={{ transform: `rotate(${i * 45}deg)` }}
-           />
+          <Segment key={i} style={{ transform: `rotate(${i * 45}deg)` }} />
         ))}
       </InnerRing>
       <CenterCircle />

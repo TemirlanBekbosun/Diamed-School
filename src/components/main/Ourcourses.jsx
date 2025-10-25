@@ -104,21 +104,22 @@ const CourseNumber = styled.h3`
   padding: 0 0 35px 0;
 `;
 
-const CourseTitle = styled.h2`
+const CourseTitle = styled("h1").withConfig({
+  shouldForwardProp: (prop) => prop !== "titleColor",
+})`
   font-size: 44px;
-  font-weight: 500;
-  color: ${(props) => props.color};
-  margin: 0;
+  font-weight: 600;
+  color: ${(props) => props.titleColor};
   font-family: "Moderustic";
 `;
 
 // ArrowIcon: не пробрасывать isSelected в финальный svg DOM
 const ArrowIcon = styled(ArrowForward, {
   shouldForwardProp: (prop) => prop !== "isSelected",
-})`
-  font-size: 45px;
-  color: ${(props) => (props.isSelected ? "#60A5FA" : "#1D3452")};
-`;
+})(({ isSelected }) => ({
+  fontSize: "45px",
+  color: isSelected ? "#60A5FA" : "#1D3452",
+}));
 
 const DetailsCard = styled.div`
   width: 600px;
