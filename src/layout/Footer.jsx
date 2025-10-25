@@ -36,11 +36,11 @@ const Footer = () => {
           <Box>
             <ContactLabel>Телефон</ContactLabel>
             <ContactRow>
-              <img src={Call} alt="" />
+              <img src={Call} alt="icon" />
               <ContactValue>+996 (555) 808 - 001</ContactValue>
             </ContactRow>
             <ContactRow>
-              <img src={Call} alt="" />
+              <img src={Call} alt="icon" />
               <ContactValue>+996 (505) 888 - 080</ContactValue>
             </ContactRow>
             <Box>
@@ -99,6 +99,7 @@ const Footer = () => {
 };
 
 export default Footer;
+
 const FooterWrapper = styled(Box)({
   padding: "40px 60px 40px 60px",
   height: "80%",
@@ -191,8 +192,7 @@ const StyledTextField = styled(TextField)(() => ({
     backgroundColor: "#fdebf1",
 
     width: "clamp(10rem, 40vw, 40.75rem)",
-    height: "60px",
-    border: " 1px solid#FF8FA3",
+    border: "1px solid #FF8FA3",
     borderRadius: "13px",
     height: "50px",
     "& fieldset": {

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Input from "../components/UI/Input";
-import Header from "../layout/Header";
 import Button from "../components/UI/Button";
 import Footer from "../layout/Footer";
 import Checkbox from "../components/UI/Checkbox";
