@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-// Анимация для вращения
 const rotate = keyframes`
   from {
     transform: rotate(0deg);

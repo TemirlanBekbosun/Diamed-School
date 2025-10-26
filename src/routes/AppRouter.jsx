@@ -3,17 +3,20 @@ import NotFound from "@src/pages/NotFound";
 import MainPage from "../pages/MainPage";
 import SignUp from "../pages/SignUp";
 import MainLayout from "../layout/main/MainLayout";
-import SignIn from "../pages/SignIn";
+import UserLayout from "../layout/user/userLayout.jsx";
+import Listoflessons from "../components/user/Listoflessons.jsx";
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-      <Route path="/" element={<MainPage />} />
+        <Route index element={<MainPage />} />
+        <Route path="signup" element={<SignUp />} />
+      </Route>
 
-      
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/sign-in" element={<SignIn />} />
+      <Route path="user" element={<UserLayout />}>
+        <Route index element={<Listoflessons />} />{" "}
+        <Route path="lessons" element={<Listoflessons />} />{" "}
       </Route>
 
       <Route path="*" element={<NotFound />} />
