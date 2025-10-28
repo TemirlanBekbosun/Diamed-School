@@ -5,8 +5,8 @@ import { useNavigate, useParams } from "react-router";
 import titleUnderlinee from "../../assets/icons/Vector8.svg";
 import titleUnderlineer from "../../assets/icons/Vector9.svg";
 import atomIcon from "../../assets/icons/AtomContainer.svg";
-import sotyicon from "../../assets/icons/Sotyicon.svg";
-import bioIcon from "../../assets/icons/BioIcon.svg";
+import sotyicon from "../../assets/icons/SotyIcon.svg";
+import bioIcon from "../../assets/icons/Bioicon.svg";
 
 const Ourcourses = () => {
   const navigate = useNavigate();
