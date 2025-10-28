@@ -1,9 +1,10 @@
+
 import { AppBar, Box, styled, Toolbar, Typography } from "@mui/material";
 import diameSchoollogo from "../../assets/icons/DiameSchool.svg";
 import { useNavigate, NavLink as RouterNavLink } from "react-router";
 import ProfileSelect from "../../components/UI/ProfileSelect";
 
-const UserHeaders = () => {
+const AdminHeader = () => {
   const navigate = useNavigate();
   const handleNavigateToSignIn = () => navigate("/signup");
   return (
@@ -16,7 +17,7 @@ const UserHeaders = () => {
   );
 };
 
-export default UserHeaders;
+export default AdminHeader;
 
 const Headers = styled("header")(() => ({
   backgroundColor: "#F2F7FB",

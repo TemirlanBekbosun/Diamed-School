@@ -13,7 +13,6 @@ import Instagram from "../assets/icons/instagram.svg";
 import Telegram from "../assets/icons/telegram.svg";
 import Email from "../assets/icons/Email.svg";
 import Call from "../assets/icons/Call.svg";
-import Button from "../components/UI/Button";
 
 const Footer = () => {
   return (
@@ -91,7 +90,7 @@ const Footer = () => {
               }
             />
           </FormLabelBlock>
-          <StyledButton>Отправить заявку</StyledButton>
+          <Button>Отправить заявку</Button>
         </Block3>
       </FooterContainer>
     </FooterWrapper>
@@ -102,7 +101,6 @@ export default Footer;
 
 const FooterWrapper = styled(Box)({
   padding: "40px 60px 40px 60px",
-  height: "80%",
   display: "flex",
   justifyContent: "center",
 });
@@ -181,11 +179,6 @@ const ContactRow = styled(Box)({
   alignItems: "center",
   gap: "8px",
 });
-const StyledButton = styled(Button)(() => ({
-  width: "74%",
-  display: "flex",
-  marginLeft: "80px",
-}));
 
 const StyledTextField = styled(TextField)(() => ({
   "& .MuiOutlinedInput-root": {
@@ -245,3 +238,27 @@ const FormLabelBlock = styled(Box)({
   marginBottom: "24px",
   display: "flex",
 });
+
+const Button = styled("button")(() => ({
+  width: "323px",
+  height: "57px",
+  background: "#3A86FF",
+  borderRadius: "8px",
+  color: "#F5F5F5",
+  boxShadow: "3px 3px 0px  #FF8FA3",
+  transition:
+    "transform 0.08s cubic-bezier(0.4,0,0.2,1), box-shadow 0.08s cubic-bezier(0.4,0,0.2,1)",
+  border: "1px  #F5F2F9 solid",
+  fontWeight: 400,
+  fontStyle: "regular",
+  fontSize: "18px",
+  fontFamily: "Moderustic",
+  cursor: "pointer",
+  outline: "none",
+  "&:active": {
+    transform: "scale(0.96)",
+    boxShadow: "1px 1px 0px #3A86FF",
+  },
+
+  marginLeft: "130px",
+}));
