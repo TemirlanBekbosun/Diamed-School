@@ -116,7 +116,6 @@ const FooterContainer = styled(Box)({
 
 const Block = styled(Box)({
   borderRadius: "30px",
-
   width: "100%",
   display: "flex",
   flexDirection: "column",
@@ -130,12 +129,13 @@ const Block2 = styled(Box)({
   display: "flex",
   flexDirection: "column",
   gap: "14px",
+  cursor: "pointer",
+
 });
 
 const Block3 = styled(Box)({
   marginTop: "50px",
   borderRadius: "30px",
-
   width: "100%",
   display: "flex",
   flexDirection: "column",
@@ -154,6 +154,8 @@ const ContactLabel = styled(Typography)({
   fontWeight: 500,
   color: "#212B36",
   marginBottom: "15px",
+  cursor: "pointer",
+
 });
 
 const ContactValue = styled(Typography)({
@@ -161,6 +163,8 @@ const ContactValue = styled(Typography)({
   fontWeight: 400,
   color: "#3A86FF",
   marginBottom: "8px",
+  cursor: "pointer",
+
 });
 
 const MessengerTitle = styled(Typography)({
