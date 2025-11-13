@@ -33,7 +33,8 @@ export default Checkbox;
 
 const StyledFormControlLabel = styled(FormControlLabel)(() => ({
   "&.MuiButtonBase-root-MuiCheckbox-root ": {
-    color: "#1744b8 ",
+    color: "#1744b8 !important",
+    border: "#1744b8  solid 1px",
   },
 }));
 
@@ -46,11 +47,11 @@ const StyledMuiCheckbox = styled(MuiCheckbox)(() => ({
 
   "&.Mui-checked": {
     "& svg": {
-      color: "#3A86FF",
+      color: "#3A86FF !important",
     },
 
     "& span": {
-      color: "#8639B5",
+      color: "#8639B5 !important",
     },
   },
 }));

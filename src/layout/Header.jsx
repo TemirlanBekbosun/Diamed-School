@@ -1,6 +1,5 @@
-import { AppBar, Box, styled, Toolbar, Typography } from "@mui/material";
+import { styled, Typography } from "@mui/material";
 import diameSchoollogo from "../assets/icons/DiameSchool.svg";
-import Button from "../components/UI/Button";
 import { useNavigate, NavLink as RouterNavLink } from "react-router";
 const Header = () => {
   const navigate = useNavigate();
@@ -70,5 +69,27 @@ const StyledNavLink = styled(RouterNavLink)(() => ({
   cursor: "pointer",
   "&.active": {
     color: "#3A86FF",
+  },
+}));
+
+const Button = styled("button")(() => ({
+  width: "163px",
+  height: "53px",
+  background: "#F5F2F9",
+  borderRadius: "8px",
+  color: "#1D3452",
+  boxShadow: "3px 3px 0px #3A86FF",
+  transition:
+    "transform 0.08s cubic-bezier(0.4,0,0.2,1), box-shadow 0.08s cubic-bezier(0.4,0,0.2,1)",
+  border: "1px #FF8FA3 solid",
+  fontWeight: 400,
+  fontStyle: "regular",
+  fontSize: "18px",
+  fontFamily: "Moderustic",
+  cursor: "pointer",
+  outline: "none",
+  "&:active": {
+    transform: "scale(0.96)",
+    boxShadow: "1px 1px 0px #3A86FF",
   },
 }));
