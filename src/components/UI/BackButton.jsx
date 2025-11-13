@@ -1,6 +1,6 @@
 import { IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import ArrowBackIcon from "../../assets/Stroke.svg";
+import ArrowBackIcon from "../../assets/icons/Stroke.svg";
 
 const StyledBackButton = styled(IconButton)(() => {
   return {
