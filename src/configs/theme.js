@@ -1,23 +1,13 @@
 import { createTheme } from "@mui/material/styles";
 
-const theme = createTheme({
+export const theme = createTheme({
   palette: {
-    mode: "light",
     primary: { main: "#1976d2" },
-    secondary: { main: "#9c27b0" },
-    background: { default: "#f7f9fc", paper: "#ffffff" },
+    secondary: { main: "#ff4081" },
+    background: { default: "#F2F7FB", paper: "#ffffff" },
   },
+  shape: { borderRadius: 20 },
   typography: {
-    fontFamily: "Inter, Roboto, Helvetica, Arial, sans-serif",
-  },
-  shape: { borderRadius: 10 },
-  components: {
-    MuiButton: {
-      defaultProps: { variant: "contained" },
-    },
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   },
 });
-
-export default theme;
-
-
