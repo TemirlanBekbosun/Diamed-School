@@ -35,7 +35,7 @@ const Title = styled(Typography)({
   fontSize: "1.25rem",
   fontWeight: 600,
   color: "#3A86FF",
-  marginBottom: 24, // ← АРАЛЫК ЧОҢОЙДУ
+  marginBottom: 24, 
   lineHeight: 1.2,
 });
 
@@ -43,7 +43,7 @@ const InfoRow = styled(Box)({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  marginTop: 16, // ← БУЛ ЖЕРДЕН ЫЛДЫЙ ТҮШҮРДҮМ
+  marginTop: 16, 
 });
 
 const Label = styled(Typography)({

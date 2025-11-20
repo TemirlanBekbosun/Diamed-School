@@ -48,7 +48,7 @@ export const CourseCard = ({ title, lessons }) => {
     <StyledCard>
       <StyledCardContent>
         <TitleTypography variant="subtitle1">{title}</TitleTypography>
-        <Box /> {/* пустой Box для отталкивания текста вниз */}
+        <Box /> 
         <LessonsTypography variant="h5">{lessons} уроков</LessonsTypography>
       </StyledCardContent>
     </StyledCard>
