@@ -19,7 +19,6 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import "dayjs/locale/ru";
-import Footer from "../layout/Footer";
 import UserHeaders from "../layout/user/userHeaders";
 
 const HeaderSection = styled(Box)`
@@ -429,7 +428,6 @@ export default function CreateLessonPage() {
           </Box>
         </PageWrapper>
       </LocalizationProvider>
-      <Footer />
     </>
   );
 }
