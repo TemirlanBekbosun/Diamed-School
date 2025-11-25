@@ -5,7 +5,6 @@ import Tabs from "../components/Tabs";
 import Lesson1 from "./Lesson1";
 import Homework1 from "./Homework1";
 import UserHeaders from "../layout/user/userHeaders";
-import Footer from "../layout/Footer";
 
 export default function LessonController() {
   const [activeTab, setActiveTab] = useState(0);
@@ -31,7 +30,6 @@ export default function LessonController() {
           {activeTab === 1 && <Homework1 />}
         </Box>
       </Box>
-      <Footer />
     </>
   );
 }

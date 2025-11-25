@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Link } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { ChevronLeft, CheckCircle } from "lucide-react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { CheckCircle } from "lucide-react";
 
 const HeaderWrapper = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -9,19 +10,6 @@ const HeaderWrapper = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   gap: theme.spacing(1.5),
   marginBottom: theme.spacing(4),
-}));
-
-const Breadcrumbs = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  flexWrap: "wrap",
-  gap: theme.spacing(1),
-  fontSize: 14,
-  "& a": {
-    color: theme.palette.text.secondary,
-    textDecoration: "none",
-    "&:hover": { color: theme.palette.primary.main },
-  },
 }));
 
 const StatusBox = styled(Box)(({ theme }) => ({
@@ -39,27 +27,46 @@ const StatusBox = styled(Box)(({ theme }) => ({
 export default function LessonHeader() {
   return (
     <HeaderWrapper>
-      <Breadcrumbs>
-        <a href="#">курсы</a>
-        <span>/</span>
-        <a href="#">Органическая химия</a>
-        <span>/</span>
-        <span style={{ color: "#0a1929" }}>Урок 1</span>
-      </Breadcrumbs>
 
-      <Button
-        startIcon={<ChevronLeft size={18} />}
-        sx={{
-          color: "#1e293b",
-          textTransform: "none",
-          fontSize: 14,
-          p: 0,
-          "&:hover": { bgcolor: "transparent", color: "#000" },
-          alignSelf: "flex-start",
-        }}
-      >
-        Назад
-      </Button>
+      {/* 🔄 Жаңы Breadcrumb + Назад */}
+      <Box sx={{ paddingLeft: 0 }}>
+        <Box
+          sx={{
+            fontSize: "0.95rem",
+            color: "#666",
+          }}
+        >
+          <Link href="/" underline="hover" sx={{ color: "#666", fontWeight: 500 }}>
+            курсы
+          </Link>
+          <Typography component="span" sx={{ mx: 0.5 }}>
+            /
+          </Typography>
+          <Typography component="span" sx={{ fontWeight: 600 }}>
+            биология
+          </Typography>
+        </Box>
+
+        <Link
+          href="/"
+          underline="none"
+          sx={{
+            mt: 2,
+            display: "flex",
+            alignItems: "center",
+            fontWeight: 600,
+            fontSize: "1rem",
+            color: "black",
+            "&:hover": { color: "#333" },
+          }}
+        >
+          <ArrowBackIcon
+            fontSize="small"
+            sx={{ mr: 0.5, color: "#1976d2" }}
+          />
+          Назад
+        </Link>
+      </Box>
 
       <Typography variant="body2" color="text.secondary">
         Урок № 1

@@ -1,68 +1,49 @@
-import React from "react";
-import { Box, Typography, Paper, Button } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { Paperclip } from "lucide-react";
+import React, { useRef, useState } from "react";
+import { Box, Button, Typography } from "@mui/material";
 
-const RedCard = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.error.light + "20",
-  border: `1px solid ${theme.palette.error.light}`,
-  borderRadius: 12,
-  padding: theme.spacing(3),
-  boxShadow: theme.shadows[1],
-}));
+export default function HomeworkCard({ description, comment, isSubmitted }) {
+  const fileInputRef = useRef(null);
+  const [selectedFile, setSelectedFile] = useState(null);
 
-const WhiteCard = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
-  border: `1px solid ${theme.palette.grey[300]}`,
-  borderRadius: 12,
-  padding: theme.spacing(3),
-  boxShadow: theme.shadows[1],
-}));
+  const handleFileSelect = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+    }
+  };
 
-export default function HomeworkCard({ description, comment, isSubmitted, onFileAttach }) {
+  const openFileDialog = () => {
+    fileInputRef.current.click();
+  };
+
   return (
-    <Box display="flex" flexDirection="column" gap={3}>
-      <RedCard>
-        <Box display="flex" justifyContent="space-between" mb={2}>
-          <Typography variant="h6">Домашнее задание</Typography>
-          {isSubmitted && (
-            <Typography variant="body2" color="primary" textAlign="right">
-              <strong>Дата отправки 26.08.25</strong>
-              <br />17:26
-            </Typography>
-          )}
-        </Box>
-        <Typography variant="body1" color="text.primary">
-          {description}
-        </Typography>
-      </RedCard>
+    <Box sx={{ p: 2, border: "1px solid #ddd", borderRadius: 2 }}>
+      <Typography variant="body1">{description}</Typography>
+      <Typography variant="body2" color="text.secondary" mt={1}>
+        {comment}
+      </Typography>
 
-      {isSubmitted && comment && (
-        <WhiteCard>
-          <Typography variant="body1" color="text.primary" mb={2}>
-            {description}
-          </Typography>
-          <Box mb={2}>
-            <Typography variant="subtitle1" fontWeight={600} mb={1}>
-              Комментарии ученика
-            </Typography>
-            <Typography variant="body2" color="text.primary">
-              {comment}
-            </Typography>
-          </Box>
-          <Box display="flex" alignItems="center" gap={2}>
-            <Button
-              variant="outlined"
-              startIcon={<Paperclip size={18} />}
-              onClick={onFileAttach}
-            >
-              Прикрепить файл
-            </Button>
-            <Typography variant="body2" color="primary">
-              Нет файла
-            </Typography>
-          </Box>
-        </WhiteCard>
+      {/* Файл тандоо */}
+      <input
+        type="file"
+        ref={fileInputRef}
+        style={{ display: "none" }}
+        onChange={handleFileSelect}
+      />
+
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        onClick={openFileDialog}
+      >
+        Файл тандоо
+      </Button>
+
+      {/* Тандалган файлды көрсөтүү */}
+      {selectedFile && (
+        <Typography mt={2} fontWeight={600}>
+          Тандалган файл: {selectedFile.name}
+        </Typography>
       )}
     </Box>
   );
