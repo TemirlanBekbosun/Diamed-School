@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 import { Box, Grid, Paper, Typography, IconButton } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import BackButton from "../components/UI/BackButton";
 
 const Card = styled(Paper)(({ theme }) => ({
   borderRadius: 16,
@@ -20,9 +21,8 @@ const Card = styled(Paper)(({ theme }) => ({
     transform: "translateY(-9px)",
     boxShadow: "0 8px 20px rgba(0,0,0,0.5)",
     transition: "all 0.6s ",
-    
   },
-    "&:active": {
+  "&:active": {
     transform: "translateY(10px)",
     boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
   },
@@ -92,22 +92,6 @@ const PaginationWrap = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(6),
 }));
 
-const RoundBtn = styled(IconButton)(({ disabled }) => ({
-  width: 52,
-  height: 52,
-  borderRadius: "50%",
-  border: "2px solid #e3d4e7",
-  background: "#fff",
-  color: disabled ? "#c5d3e3" : "#5e88e6",
-  boxShadow: "0 4px 12px rgba(94,136,230,0.12)",
-  transition: "all 0.3s ease",
-  "&:hover": {
-    background: disabled ? "#fff" : "#f0f5ff",
-    transform: disabled ? "none" : "scale(1.05)",
-  },
-  "&:disabled": { border: "2px solid #e8e8e8" },
-}));
-
 const PageNumber = styled(Typography)(() => ({
   color: "#617191",
   fontWeight: 600,
@@ -171,21 +155,20 @@ export default function LessonsGrid({
 
         {showPagination && totalPages > 1 && (
           <PaginationWrap>
-            <RoundBtn
+            <BackButton
               onClick={() => setPage((p) => Math.max(0, p - 1))}
               disabled={page === 0}
             >
               <ArrowBackIosNewIcon fontSize="small" />
-            </RoundBtn>
+            </BackButton>
             <PageNumber>
               {page + 1} / {totalPages}
             </PageNumber>
-            <RoundBtn
+            <BackButton
               onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
               disabled={page >= totalPages - 1}
-            >
-              <ArrowForwardIosIcon fontSize="small" />
-            </RoundBtn>
+              direction="right"
+            />
           </PaginationWrap>
         )}
       </Box>

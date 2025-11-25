@@ -1,6 +1,6 @@
 import { Box, Typography, styled } from "@mui/material";
-import Button from "./UI/Button";
-import Input from "./UI/Input";
+import Button from "../UI/Button";
+import Input from "../UI/Input";
 
 const Profile = () => {
   return (
@@ -35,7 +35,7 @@ const Container = styled(Box)(() => ({
   justifyContent: "center",
   alignItems: "flex-start",
   gap: "40px",
-  backgroundColor: "#f6fbff",
+  backgroundColor: "#F2F7FB",
   minHeight: "100vh",
   padding: "60px",
 }));
@@ -107,14 +107,50 @@ const Label = styled("h3")(() => ({
 
 const ButtonsBox = styled("div")(() => ({
   display: "flex",
-  gap: "14px",
+  gap: "31px",
   marginTop: "20px",
 }));
 
-const SaveButton = styled(Button)(() => ({
-  width: "330px",
+const SaveButton = styled("button")(() => ({
+  width: "323px",
+  height: "57px",
+  background: "#3A86FF",
+  borderRadius: "8px",
+  color: "#F5F5F5",
+  boxShadow: "3px 3px 0px  #FF8FA3",
+  transition:
+    "transform 0.08s cubic-bezier(0.4,0,0.2,1), box-shadow 0.08s cubic-bezier(0.4,0,0.2,1)",
+  border: "1px  #F5F2F9 solid",
+  fontWeight: 400,
+  fontStyle: "regular",
+  fontSize: "18px",
+  fontFamily: "Moderustic",
+  cursor: "pointer",
+  outline: "none",
+  "&:active": {
+    transform: "scale(0.96)",
+    boxShadow: "1px 1px 0px #3A86FF",
+  },
 }));
 
-const EditButton = styled(Button)(() => ({
-  width: "330px",
+const EditButton = styled("button")(() => ({
+  width: "323px",
+  height: "57px",
+  background: "#F5F2F9",
+  borderRadius: "8px",
+  color: "#1D3452",
+  boxShadow: "3px 3px 0px #3A86FF",
+  transition:
+    "transform 0.08s cubic-bezier(0.4,0,0.2,1), box-shadow 0.08s cubic-bezier(0.4,0,0.2,1)",
+  border: "1px #FF8FA3 solid",
+  fontWeight: 400,
+  fontStyle: "regular",
+  fontSize: "18px",
+  fontFamily: "Moderustic",
+  cursor: "pointer",
+  outline: "none",
+  "&:active": {
+    transform: "scale(0.96)",
+    boxShadow: "1px 1px 0px #3A86FF",
+  },
 }));

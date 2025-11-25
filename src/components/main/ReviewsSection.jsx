@@ -50,7 +50,7 @@ const ReviewsSection = () => {
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = 400; // px
+      const scrollAmount = 400; 
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -62,7 +62,7 @@ const ReviewsSection = () => {
     <SectionContainer>
       <Title>Отзывы наших учеников</Title>
 
-      <Box position="relative" sx={{ maxWidth: "1200px", mx: "auto" }}>
+      <Box position="relative" sx={{ maxWidth: "800px", mx: "auto" }}>
         <ArrowButton direction="left" onClick={() => scroll("left")}>
           <ArrowBackIosNewRoundedIcon fontSize="medium" />
         </ArrowButton>

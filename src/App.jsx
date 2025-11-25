@@ -1,4 +1,6 @@
-import LessonController from "./pages/LessonController";
-const App = () => <LessonController />;
+import AppRomeuter from "./routes/AppRouter";
+
+const App = () => <AppRouter />;
+
 export default App;
  

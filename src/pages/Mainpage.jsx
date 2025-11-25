@@ -1,4 +1,3 @@
-import Header from "../layout/Header";
 import Intro from "../components/main/Intro";
 import { CoursesSection } from "../components/main/CoursesSection";
 import Ourcourses from "../components/main/Ourcourses";

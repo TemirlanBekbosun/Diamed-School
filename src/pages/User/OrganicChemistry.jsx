@@ -109,7 +109,7 @@ const BackButton = styled(Button)(({ theme }) => ({
     background: "transparent",
     opacity: 0.8,
   },
-     "&:active": {
+  "&:active": {
     transform: "translateY(1px)",
   },
 }));
