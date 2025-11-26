@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router";
 import NotFound from "@src/pages/NotFound";
-import MainPage from "../pages/MainPage";
-import SignUp from "../pages/SignUp";
-import MainLayout from "../layout/main/MainLayout";
+import MainPage from "../pages/Mainpage.jsx";
+import SignUp from "../pages/SignUp.jsx";
+import MainLayout from "../layout/main/MainLayout.jsx";
 import UserLayout from "../layout/user/userLayout.jsx";
 import Listoflessons from "../components/user/Listoflessons.jsx";
 import SignIn from "../pages/SignIn.jsx";
@@ -29,13 +29,9 @@ const AppRouter = () => {
         <Route path="profile" element={<Profile />} />
       </Route>
 
-<Route path="admin" element={<AdminLayout />}>
+      <Route path="admin" element={<AdminLayout />}>
         <Route index element={<MainAdminPage />} />
-
-
-</Route>
-
-
+      </Route>
 
       <Route path="*" element={<NotFound />} />
     </Routes>

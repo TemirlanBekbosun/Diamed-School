@@ -1,4 +1,3 @@
-
 import { AppBar, Box, styled, Toolbar, Typography } from "@mui/material";
 import diameSchoollogo from "../../assets/icons/DiameSchool.svg";
 import { useNavigate, NavLink as RouterNavLink } from "react-router";
