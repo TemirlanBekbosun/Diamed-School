@@ -13,9 +13,9 @@ import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRound
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 
 const ReviewsSection = () => {
+  const scrollRef = useRef(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const scrollRef = useRef(null);
 
   const reviews = [
     {
@@ -39,20 +39,12 @@ const ReviewsSection = () => {
       rating: 5,
       avatar: "/avatar3.png",
     },
-    {
-      name: "Айдана",
-      grade: "Ученик 9 класса",
-      text: "Lorem ipsum dolor sit amet consectetur. Sit viverра cras adipiscing habitant turpis. Nec iaculis orci porttitor faucibus nibh pellentesque egestas urna.",
-      rating: 5,
-      avatar: "/avatar2.png",
-    },
   ];
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = 400; 
       scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
+        left: direction === "left" ? -400 : 400,
         behavior: "smooth",
       });
     }
@@ -62,72 +54,43 @@ const ReviewsSection = () => {
     <SectionContainer>
       <Title>Отзывы наших учеников</Title>
 
-      <Box position="relative" sx={{ maxWidth: "800px", mx: "auto" }}>
+      <SliderWrapper>
         <ArrowButton direction="left" onClick={() => scroll("left")}>
           <ArrowBackIosNewRoundedIcon fontSize="medium" />
         </ArrowButton>
 
         <ScrollWrapper ref={scrollRef}>
-          {reviews.map((review, index) => (
-            <ReviewCard key={index}>
-              <AvatarWrapper>
-                <Avatar
-                  src={review.avatar}
-                  alt={review.name}
-                  sx={{
-                    width: 70,
-                    height: 70,
-                    border: "2px solid #fff",
-                    boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
-                  }}
-                />
-              </AvatarWrapper>
+          {reviews.map((item, index) => (
+            <CardShadowWrapper key={index}>
+              <BlueShadow style={{ top: 14, right: 12, rotate: "-3deg" }} />
 
-              <Typography
-                variant="h6"
-                sx={{
-                  fontWeight: 700,
-                  color: "#0C2340",
-                  fontFamily: "'Inter', sans-serif",
-                  marginTop: "20px",
-                }}
-              >
-                {review.name}
-              </Typography>
+              <ReviewCard>
+                <AvatarWrapper>
+                  <Avatar
+                    src={item.avatar}
+                    alt={item.name}
+                    style={{
+                      width: 70,
+                      height: 70,
+                      border: "3px solid #fff",
+                    }}
+                  />
+                </AvatarWrapper>
 
-              <Typography
-                sx={{
-                  fontSize: "16px",
-                  color: "#333",
-                  opacity: 0.8,
-                  marginBottom: "16px",
-                  fontFamily: "'Inter', sans-serif",
-                }}
-              >
-                {review.grade}
-              </Typography>
+                <Name>{item.name}</Name>
+                <Grade>{item.grade}</Grade>
+                <Text>{item.text}</Text>
 
-              <Typography
-                sx={{
-                  fontSize: "15px",
-                  lineHeight: 1.6,
-                  color: "#555",
-                  marginBottom: "24px",
-                  fontFamily: "'Inter', sans-serif",
-                }}
-              >
-                {review.text}
-              </Typography>
-
-              <Rating value={review.rating} readOnly size="medium" />
-            </ReviewCard>
+                <BigRating value={item.rating} readOnly size="medium" />
+              </ReviewCard>
+            </CardShadowWrapper>
           ))}
         </ScrollWrapper>
 
         <ArrowButton direction="right" onClick={() => scroll("right")}>
           <ArrowForwardIosRoundedIcon fontSize="medium" />
         </ArrowButton>
-      </Box>
+      </SliderWrapper>
     </SectionContainer>
   );
 };
@@ -135,72 +98,120 @@ const ReviewsSection = () => {
 export default ReviewsSection;
 
 const SectionContainer = styled(Box)(({ theme }) => ({
-  backgroundColor: "#F6FBFF",
   padding: "80px 0",
   textAlign: "center",
   [theme.breakpoints.down("sm")]: {
     padding: "40px 0",
   },
 }));
+const BigRating = styled(Rating)({
+  marginTop: "20px",
+  "& .MuiRating-icon": {
+    fontSize: "40px",
+    margin: "0 4px",
+  },
+});
 
 const Title = styled(Typography)(({ theme }) => ({
   fontSize: "56px",
   fontWeight: 700,
   color: "#0C2340",
   marginBottom: "60px",
-  fontFamily: "'Inter', sans-serif",
   [theme.breakpoints.down("sm")]: {
     fontSize: "36px",
   },
 }));
 
+const SliderWrapper = styled(Box)({
+  maxWidth: "1300px",
+  maxHeight: "700px",
+  margin: "0 auto",
+  position: "relative",
+});
+
 const ScrollWrapper = styled(Box)(({ theme }) => ({
   display: "flex",
-  gap: "30px",
+  gap: "40px",
   overflowX: "auto",
-  scrollBehavior: "smooth",
-  padding: "10px",
+  padding: "20px",
   scrollbarWidth: "none",
   "&::-webkit-scrollbar": {
     display: "none",
   },
 }));
 
-const ReviewCard = styled(Card)(({ theme }) => ({
+const CardShadowWrapper = styled(Box)({
+  position: "relative",
+  width: "520px",
+  height: "500px",
+  paddingTop: "25px",
+
+  display: "flex",
+  justifyContent: "center",
+
+  "&:hover": {
+    transform: "scale(1.05)",
+    transition: "transform 0.4s ease",
+  },
+});
+
+const BlueShadow = styled("div")({
+  position: "absolute",
+  width: "100%",
+  height: "100%",
+  borderRadius: "24px",
+  background: "#346BFF",
+});
+
+const ReviewCard = styled(Card)({
   position: "relative",
   borderRadius: "24px",
-  padding: "50px 28px 36px",
-  minWidth: "280px",
-  maxWidth: "320px",
-  backgroundColor: "#fff",
-  border: "1px solid #F2F2F2",
-  boxShadow: "5px 5px 0px #346BFF",
+  padding: "80px 28px 36px",
+  width: "100%",
+  backgroundColor: "#f1eded",
+  border: "1px solid #FF8FA3",
   textAlign: "center",
-  transition: "transform 0.3s ease",
-  flexShrink: 0,
-  "&:hover": {
-    transform: "translateY(-5px)",
-  },
-  [theme.breakpoints.down("sm")]: {
-    minWidth: "240px",
-    padding: "40px 20px 28px",
-  },
-}));
+  zIndex: 2,
+  boxShadow: "0px 4px 14px rgba(0,0,0,0.06)",
+});
 
-const AvatarWrapper = styled(Box)(() => ({
+const AvatarWrapper = styled(Box)({
   position: "absolute",
-  top: "-40px",
+  top: "5px",
   left: "50%",
   transform: "translateX(-50%)",
-  width: "80px",
-  height: "80px",
+  width: "90px",
+  height: "90px",
   borderRadius: "50%",
-  backgroundColor: "#fff",
+  backgroundColor: "none",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  boxShadow: "0 0 0 4px #fff",
-}));
+});
+
+const Name = styled(Typography)({
+  marginTop: "20px",
+  fontWeight: 700,
+  fontSize: "24px",
+  color: "#0C2340",
+});
+
+const Grade = styled(Typography)({
+  fontSize: "19px",
+  fontWeight: 400,
+  color: "#000",
+  opacity: 0.8,
+  marginBottom: "16px",
+});
+
+const Text = styled(Typography)({
+  fontSize: "19px",
+  padding: "0 20px",
+  fontqWeight: 400,
+  color: "#929292",
+  marginBottom: "24px",
+  textAlign: "start",
+});
 
 const ArrowButton = styled(IconButton)(({ direction }) => ({
   width: 70,
@@ -213,9 +224,7 @@ const ArrowButton = styled(IconButton)(({ direction }) => ({
   position: "absolute",
   top: "50%",
   transform: "translateY(-50%)",
-  [direction === "left" ? "left" : "right"]: "-90px",
-  zIndex: 2,
-  "&:hover": {
-    backgroundColor: "#F6FBFF",
-  },
+  ...(direction === "left" ? { left: "-90px" } : { right: "-90px" }),
+  zIndex: 3,
+  "&:hover": { backgroundColor: "#F6FBFF" },
 }));

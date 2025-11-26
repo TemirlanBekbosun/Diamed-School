@@ -41,12 +41,12 @@ const StyledButton = styled(MuiButton, {
 
   const base = {
     borderRadius: "16px",
-    padding: "30px 50px",
+    padding: "10px 25px",
     position: "relative",
     textTransform: "none",
     fontWeight: 700,
     fontStyle: "regular",
-    fontSize: "24px",
+    fontSize: "22px",
     fontFamily: "Roboto",
     cursor: "pointer",
 
