@@ -99,170 +99,170 @@ const Footer = () => {
 
 export default Footer;
 
-const FooterWrapper = styled(Box)({
-  padding: "40px 60px 40px 60px",
-  display: "flex",
-  justifyContent: "center",
-});
+  const FooterWrapper = styled(Box)({
+    padding: "40px 60px 40px 60px",
+    display: "flex",
+    justifyContent: "center",
+  });
 
-const FooterContainer = styled(Box)({
-  width: "100%",
-  display: "flex",
-  gap: "0px",
-  justifyContent: "center",
-});
+  const FooterContainer = styled(Box)({
+    width: "100%",
+    display: "flex",
+    gap: "0px",
+    justifyContent: "center",
+  });
 
-const Block = styled(Box)({
-  borderRadius: "30px",
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  gap: "24px",
-});
+  const Block = styled(Box)({
+    borderRadius: "30px",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: "24px",
+  });
 
-const Block2 = styled(Box)({
-  borderRadius: "30px",
-  padding: "123px 0px",
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  gap: "14px",
-  cursor: "pointer",
+  const Block2 = styled(Box)({
+    borderRadius: "30px",
+    padding: "123px 0px",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: "14px",
+    cursor: "pointer",
 
-});
+  });
 
-const Block3 = styled(Box)({
-  marginTop: "50px",
-  borderRadius: "30px",
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  gap: "24px",
-});
+  const Block3 = styled(Box)({
+    marginTop: "50px",
+    borderRadius: "30px",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: "24px",
+  });
 
-const ContactTitle = styled(Typography)({
-  fontSize: "78px",
-  fontWeight: 500,
-  color: "#212B36",
-  marginBottom: "33px",
-});
-
-const ContactLabel = styled(Typography)({
-  fontSize: "24px",
-  fontWeight: 500,
-  color: "#212B36",
-  marginBottom: "15px",
-  cursor: "pointer",
-
-});
-
-const ContactValue = styled(Typography)({
-  fontSize: "23px",
-  fontWeight: 400,
-  color: "#3A86FF",
-  marginBottom: "8px",
-  cursor: "pointer",
-
-});
-
-const MessengerTitle = styled(Typography)({
-  fontSize: "24px",
-  fontWeight: 500,
-  color: "#212B36",
-  marginTop: "50px",
-});
-
-const MessengerIcons = styled(Box)({
-  display: "flex",
-  gap: "16px",
-  marginBottom: "100px",
-});
-
-const ContactRow = styled(Box)({
-  display: "flex",
-  alignItems: "center",
-  gap: "8px",
-});
-
-const StyledTextField = styled(TextField)(() => ({
-  "& .MuiOutlinedInput-root": {
-    backgroundColor: "#fdebf1",
-
-    width: "clamp(10rem, 40vw, 40.75rem)",
-    border: "1px solid #FF8FA3",
-    borderRadius: "13px",
-    height: "50px",
-    "& fieldset": {
-      borderColor: "#FCE4EC",
-      borderWidth: "1px",
-    },
-    "&:hover fieldset": {
-      borderColor: "#FCE4EC",
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "#FCE4EC",
-    },
-  },
-  "& .MuiInputBase-input": {
-    fontSize: "16px",
+  const ContactTitle = styled(Typography)({
+    fontSize: "78px",
+    fontWeight: 500,
     color: "#212B36",
-    "&::placeholder": {
-      color: "#919EAB",
-      opacity: 1,
+    marginBottom: "33px",
+  });
+
+  const ContactLabel = styled(Typography)({
+    fontSize: "24px",
+    fontWeight: 500,
+    color: "#212B36",
+    marginBottom: "15px",
+    cursor: "pointer",
+
+  });
+
+  const ContactValue = styled(Typography)({
+    fontSize: "23px",
+    fontWeight: 400,
+    color: "#3A86FF",
+    marginBottom: "8px",
+    cursor: "pointer",
+
+  });
+
+  const MessengerTitle = styled(Typography)({
+    fontSize: "24px",
+    fontWeight: 500,
+    color: "#212B36",
+    marginTop: "50px",
+  });
+
+  const MessengerIcons = styled(Box)({
+    display: "flex",
+    gap: "16px",
+    marginBottom: "100px",
+  });
+
+  const ContactRow = styled(Box)({
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+  });
+
+  const StyledTextField = styled(TextField)(() => ({
+    "& .MuiOutlinedInput-root": {
+      backgroundColor: "#fdebf1",
+
+      width: "clamp(10rem, 40vw, 40.75rem)",
+      border: "1px solid #FF8FA3",
+      borderRadius: "13px",
+      height: "50px",
+      "& fieldset": {
+        borderColor: "#FCE4EC",
+        borderWidth: "1px",
+      },
+      "&:hover fieldset": {
+        borderColor: "#FCE4EC",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#FCE4EC",
+      },
     },
-  },
-}));
+    "& .MuiInputBase-input": {
+      fontSize: "16px",
+      color: "#212B36",
+      "&::placeholder": {
+        color: "#919EAB",
+        opacity: 1,
+      },
+    },
+  }));
 
-const StyledCheckbox = styled(Checkbox)({
-  padding: "0 0 49px 0",
-  color: "#FCE4EC",
-  "&.Mui-checked": {
-    color: "#3A86FF",
-  },
-});
+  const StyledCheckbox = styled(Checkbox)({
+    padding: "0 0 49px 0",
+    color: "#FCE4EC",
+    "&.Mui-checked": {
+      color: "#3A86FF",
+    },
+  });
 
-const ConsentTypography = styled(Typography)({
-  fontSize: "18px",
-  fontWeight: 400,
-  color: "#1D3452",
-  fontFamily: "Roboto, sans-serif",
-  lineHeight: 1.4,
-});
+  const ConsentTypography = styled(Typography)({
+    fontSize: "18px",
+    fontWeight: 400,
+    color: "#1D3452",
+    fontFamily: "Roboto, sans-serif",
+    lineHeight: 1.4,
+  });
 
-const StyledLink = styled(Link)({
-  color: "#555555",
-  textDecoration: "underline",
-  "&:hover": {
-    color: "#3A86FF",
-  },
-});
+  const StyledLink = styled(Link)({
+    color: "#555555",
+    textDecoration: "underline",
+    "&:hover": {
+      color: "#3A86FF",
+    },
+  });
 
-const FormLabelBlock = styled(Box)({
-  alignItems: "flex-start",
-  marginBottom: "24px",
-  display: "flex",
-});
+  const FormLabelBlock = styled(Box)({
+    alignItems: "flex-start",
+    marginBottom: "24px",
+    display: "flex",
+  });
 
-const Button = styled("button")(() => ({
-  width: "323px",
-  height: "57px",
-  background: "#3A86FF",
-  borderRadius: "8px",
-  color: "#F5F5F5",
-  boxShadow: "3px 3px 0px  #FF8FA3",
-  transition:
-    "transform 0.08s cubic-bezier(0.4,0,0.2,1), box-shadow 0.08s cubic-bezier(0.4,0,0.2,1)",
-  border: "1px  #F5F2F9 solid",
-  fontWeight: 400,
-  fontStyle: "regular",
-  fontSize: "18px",
-  fontFamily: "Moderustic",
-  cursor: "pointer",
-  outline: "none",
-  "&:active": {
-    transform: "scale(0.96)",
-    boxShadow: "1px 1px 0px #3A86FF",
-  },
+  const Button = styled("button")(() => ({
+    width: "323px",
+    height: "57px",
+    background: "#3A86FF",
+    borderRadius: "8px",
+    color: "#F5F5F5",
+    boxShadow: "3px 3px 0px  #FF8FA3",
+    transition:
+      "transform 0.08s cubic-bezier(0.4,0,0.2,1), box-shadow 0.08s cubic-bezier(0.4,0,0.2,1)",
+    border: "1px  #F5F2F9 solid",
+    fontWeight: 400,
+    fontStyle: "regular",
+    fontSize: "18px",
+    fontFamily: "Moderustic",
+    cursor: "pointer",
+    outline: "none",
+    "&:active": {
+      transform: "scale(0.96)",
+      boxShadow: "1px 1px 0px #3A86FF",
+    },
 
-  marginLeft: "130px",
-}));
+    marginLeft: "130px",
+  }));

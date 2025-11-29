@@ -50,7 +50,7 @@ const ReviewsSection = () => {
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = 400; 
+      const scrollAmount = 400;
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",

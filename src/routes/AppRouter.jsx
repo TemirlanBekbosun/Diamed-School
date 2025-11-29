@@ -10,6 +10,9 @@ import Ourcourses from "../components/main/Ourcourses.jsx";
 import Profile from "../components/user/Profile.jsx";
 import AdminLayout from "../layout/admin/AdminLayout.jsx";
 import MainAdminPage from "../components/admin/MainAdminPage.jsx";
+import Teacher from "../components/main/minipage/Teachers.jsx";
+import Reviews from "../components/main/minipage/Reviews.jsx";
+import Footer from "../layout/Footer.jsx";
 
 const AppRouter = () => {
   return (
@@ -21,6 +24,12 @@ const AppRouter = () => {
         <Route path="/courses" element={<Ourcourses />}>
           <Route path=":courseId" element={<Ourcourses />} />
         </Route>
+        <Route path="/teachers" element={<Teacher />}/>
+        <Route path="/reviews" element={<Reviews />}/>
+
+        <Route path="/contacts" element={<Footer />}/>
+        <Route path="/about" element={<MainPage />}/>
+        
       </Route>
 
       <Route path="user" element={<UserLayout />}>
