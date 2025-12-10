@@ -1,5 +1,5 @@
-import HomeworkCard from "../components/HomeworkCard";
-import SubmitHomework from "../components/SubmitHomework";
+import HomeworkCard from "../components/Video/HomeworkCard";
+import SubmitHomework from "../components/Video/SubmitHomework";
 
 export default function Homework1() {
   const homework = {

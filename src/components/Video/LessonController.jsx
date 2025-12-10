@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { Box } from "@mui/material";
-import LessonHeader from "../components/LessonHeader";
-import Tabs from "../components/Tabs";
+import LessonHeader from "./LessonHeader";
+import Tabs from "./Tabs";
 import Lesson1 from "./Lesson1";
 import Homework1 from "./Homework1";
-import UserHeaders from "../layout/user/userHeaders";
+import UserHeaders from "../../layout/user/userHeaders";
 
 export default function LessonController() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
     <>
-    <UserHeaders />
+      <UserHeaders />
       <Box
         sx={{
           display: "flex",

@@ -43,7 +43,7 @@ const LessonsTypography = styled(Typography)({
   textAlign: "center",
 });
 
-export const CourseCard = ({ title, lessons }) => {
+export const CourseCard = ({ title, lessons }) => { 
   return (
     <StyledCard>
       <StyledCardContent>

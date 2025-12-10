@@ -1,6 +1,6 @@
-import AppRomeuter from "./routes/AppRouter";
+import LessonController from "./components/Video/LessonController";
+import AppRouter from "./routes/AppRouter";
 
-const App = () => <AppRouter />;
+const App = () => <LessonController />;
 
 export default App;
- 
