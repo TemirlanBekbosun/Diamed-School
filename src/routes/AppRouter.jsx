@@ -14,6 +14,7 @@ import Teacher from "../components/main/minipage/Teachers.jsx";
 import Reviews from "../components/main/minipage/Reviews.jsx";
 import Footer from "../layout/Footer.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
+import AboutCenter from "../components/AboutCenter.jsx";
 
 const AppRouter = () => {
   return (
@@ -38,7 +39,7 @@ const AppRouter = () => {
         <Route path="/reviews" element={<Reviews />} />
 
         <Route path="/contacts" element={<Footer />} />
-        <Route path="/about" element={<MainPage />} />
+        <Route path="/about" element={<AboutCenter />} />
       </Route>
 
       <Route
