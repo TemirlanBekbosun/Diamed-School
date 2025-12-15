@@ -166,7 +166,7 @@ export default function LessonsGrid({
             </PageNumber>
             <BackButton
               onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-              disabled={page >= totalPages - 1}
+              disabled=  {page >= totalPages - 1}
               direction="right"
             />
           </PaginationWrap>
