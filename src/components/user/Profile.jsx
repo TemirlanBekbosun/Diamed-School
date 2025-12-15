@@ -8,7 +8,7 @@ const Profile = () => {
       <PhotoBox>
         <AddPhoto>+</AddPhoto>
         <span>Фото</span>
-      </PhotoBox>
+      </PhotoBox> 
 
       <FormBox>
         <Label>ФИО</Label>
