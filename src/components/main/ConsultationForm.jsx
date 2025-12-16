@@ -4,11 +4,11 @@ import {
   Typography,
   TextField,
   MenuItem,
-  Button,
   Container,
   Card,
   useTheme
 } from '@mui/material';
+import Button from '../UI/Button';
 
 const ConsultationForm = () => {
   const theme = useTheme();
@@ -38,7 +38,6 @@ const ConsultationForm = () => {
             boxSizing: 'border-box'
           }}
         >
-          {/* Header */}
           <Typography
             variant="h1"
             sx={{
@@ -52,9 +51,7 @@ const ConsultationForm = () => {
             Запишитесь на консультацию
           </Typography>
 
-          {/* Form Fields */}
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-            {/* Name Field */}
             <TextField
               placeholder="Имя"
               sx={{
@@ -70,7 +67,6 @@ const ConsultationForm = () => {
               }}
             />
 
-            {/* Phone Field */}
             <TextField
               placeholder="Телефон"
               sx={{
@@ -86,7 +82,6 @@ const ConsultationForm = () => {
               }}
             />
 
-            {/* Direction Dropdown */}
             <TextField
               select
               placeholder="Направление"
@@ -133,10 +128,8 @@ const ConsultationForm = () => {
               }}
             >
               <MenuItem value="">Направление</MenuItem>
-              {/* TODO: Add actual menu items */}
             </TextField>
 
-            {/* Comment Field */}
             <TextField
               placeholder="Комментарий"
               multiline
@@ -155,27 +148,9 @@ const ConsultationForm = () => {
           </Box>
         </Card>
 
-        {/* Submit Button */}
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
           <Button
-            variant="contained"
-            sx={{
-              width: '317.18px',
-              height: '53px',
-              borderRadius: '8px',
-              background: '#FF8FA3',
-              border: '1px solid #F5F2F9',
-              color: '#F5F5F5',
-              fontSize: '1rem',
-              fontWeight: 'bold',
-              textTransform: 'none',
-              boxShadow: 'none',
-              '&:hover': {
-                background: '#FF8FA3',
-                boxShadow: 'none'
-              }
-            }}
-          >
+            variant="outlined">
             Отправить заявку
           </Button>
         </Box>

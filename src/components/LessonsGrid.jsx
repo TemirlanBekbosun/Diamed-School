@@ -113,7 +113,7 @@ export default function LessonsGrid({
 
   return (
     <>
-      <Box sx={{ px: 3.5, pb: 6 }}>
+      <Box sx={{ px: 0, pb: 6 }}>
         <Grid
           container
           spacing={3}

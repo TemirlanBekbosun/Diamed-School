@@ -1,99 +1,24 @@
-import { Box, Typography, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  CircularProgress,
+  Alert,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import { useNavigate } from "react-router";
-import LessonsGrid from "../../components/LessonsGrid";
+import { useNavigate, useParams } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import UserHeaders from "../../layout/user/userHeaders";
 import Footer from "../../layout/Footer";
-
-const allLessons = [
-  {
-    id: "G1",
-    title: "Урок №1",
-    subtitle: "Вводная лекция",
-    date: "20.07.25",
-    time: "19:00",
-  },
-  {
-    id: "G2",
-    title: "Урок №2",
-    subtitle: "Вводная лекция",
-    date: "20.07.25",
-    time: "19:00",
-  },
-  {
-    id: "G3",
-    title: "Урок №2",
-    subtitle: "Вводная лекция",
-    date: "20.07.25",
-    time: "19:00",
-  },
-  {
-    id: "G4",
-    title: "Урок №1",
-    subtitle: "Вводная лекция",
-    date: "20.07.25",
-    time: "19:00",
-  },
-  {
-    id: "G5",
-    title: "Урок №1",
-    subtitle: "Вводная лекция",
-    date: "20.07.25",
-    time: "19:00",
-  },
-  {
-    id: "G6",
-    title: "Урок №2",
-    subtitle: "Вводная лекция",
-    date: "20.07.25",
-    time: "19:00",
-  },
-  {
-    id: "G7",
-    title: "Урок №1",
-    subtitle: "Вводная лекция",
-    date: "20.07.25",
-    time: "19:00",
-  },
-  {
-    id: "G8",
-    title: "Урок №2",
-    subtitle: "Вводная лекция",
-    date: "20.07.25",
-    time: "19:00",
-  },
-  {
-    id: "G9",
-    title: "Урок №2",
-    subtitle: "Вводная лекция",
-    date: "20.07.25",
-    time: "19:00",
-  },
-  {
-    id: "G10",
-    title: "Урок №1",
-    subtitle: "Вводная лекция",
-    date: "20.07.25",
-    time: "19:00",
-  },
-].concat(
-  Array(20)
-    .fill(null)
-    .map((_, i) => ({
-      id: `X${i + 1}`,
-      title: `Урок №${(i % 2) + 1}`,
-      subtitle: "Вводная лекция",
-      date: "20.07.25",
-      time: "19:00",
-    }))
-);
+import { fetchLessons } from "../../store/Organic/OragnicThunk";
+import LessonsOrga from "../../components/user/LassonOrga";
 
 const Breadcrumbs = styled(Box)(({ theme }) => ({
-  gap: theme.spacing(2),
-  padding: theme.spacing(2, 8.0),
   color: "#5b7aa0",
   fontSize: 14,
+  marginLeft: 62,
 }));
 
 const BackButton = styled(Button)(({ theme }) => ({
@@ -103,19 +28,50 @@ const BackButton = styled(Button)(({ theme }) => ({
   fontSize: 18,
   fontWeight: 700,
   textTransform: "none",
-  padding: theme.spacing(0.5, 0),
-  minWidth: "auto",
-  "&:hover": {
-    background: "transparent",
-    opacity: 0.8,
-  },
-  "&:active": {
-    transform: "translateY(1px)",
-  },
+  "&:hover": { background: "transparent", opacity: 0.8 },
 }));
+
+const LoadingContainer = styled(Box)({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  minHeight: "50vh",
+});
 
 export default function OrganicChemistry() {
   const navigate = useNavigate();
+  const { sectionId } = useParams(); // URL'ден алынуучу sectionId
+  const dispatch = useDispatch();
+
+  const { lessons, loading, error } = useSelector((state) => state.organic);
+
+  useEffect(() => {
+    if (1) {
+      dispatch(fetchLessons(1));
+    }
+  }, [1, dispatch]);
+
+  // МААНИЛҮҮ: Дата жана убакытты туура иштетүү
+  const formattedLessons = lessons.map((lesson) => {
+    let dateStr = "20.07.25";
+    let timeStr = "19:00";
+
+    if (lesson.date) {
+      const [datePart, timePartWithMillis] = lesson.date.split("T");
+      dateStr = datePart.replace(/-/g, "."); // 2025-12-16 → 2025.12.16
+
+      if (timePartWithMillis) {
+        timeStr = timePartWithMillis.substring(0, 5); // 09:18:07.222 → 09:18
+      }
+    }
+
+    return {
+      id: String(lesson.id),
+      subtitle: lesson.name || "Вводная лекция",
+      date: dateStr,
+      time: timeStr,
+    };
+  });
 
   return (
     <>
@@ -123,15 +79,9 @@ export default function OrganicChemistry() {
 
       <Breadcrumbs>
         <Typography variant="subtitle1">курсы / Органическая химия</Typography>
-
         <BackButton
           startIcon={
-            <ArrowBackIosNewIcon
-              fontSize="small"
-              sx={{
-                color: "#007BFF",
-              }}
-            />
+            <ArrowBackIosNewIcon fontSize="small" sx={{ color: "#007BFF" }} />
           }
           onClick={() => navigate(-1)}
           disableRipple
@@ -140,12 +90,37 @@ export default function OrganicChemistry() {
         </BackButton>
       </Breadcrumbs>
 
-      <LessonsGrid
-        lessons={allLessons}
-        itemsPerPage={10}
-        stripeColors={["#12A84A", "#8C1A1A", "#D56B1A", "#2A1B6E", "#0C1220"]}
-        showPagination={true}
-      />
+      {loading && (
+        <LoadingContainer>
+          <CircularProgress />
+        </LoadingContainer>
+      )}
+
+      {error && (
+        <Box sx={{ px: 0, mt: 2 }}>
+          <Alert severity="error">
+            Ката:{" "}
+            {typeof error === "string"
+              ? error
+              : error?.message || "Маалымат жүктөлбөдү"}
+          </Alert>
+        </Box>
+      )}
+
+      {!loading && !error && formattedLessons.length === 0 && (
+        <Box sx={{ px: 0, mt: 4, textAlign: "center" }}>
+          <Typography>Бул бөлүмдө уроктор жок</Typography>
+        </Box>
+      )}
+
+      {!loading && !error && formattedLessons.length > 0 && (
+        <LessonsOrga
+          lessons={formattedLessons}
+          itemsPerPage={8}
+          stripeColors={["#12A84A", "#8C1A1A", "#D56B1A", "#2A1B6E", "#0C1220"]}
+          showPagination={true}
+        />
+      )}
 
       <Footer />
     </>
