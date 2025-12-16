@@ -5,8 +5,185 @@ import { useNavigate, useParams } from "react-router";
 import titleUnderlinee from "../../assets/icons/Vector8.svg";
 import titleUnderlineer from "../../assets/icons/Vector9.svg";
 import atomIcon from "../../assets/icons/AtomContainer.svg";
-import sotyicon from "../../assets/icons/Sotyicon.svg";
-import bioIcon from "../../assets/icons/BioIcon.svg";
+import sotyicon from "../../assets/icons/SotyIcon.svg";
+import bioIcon from "../../assets/icons/Bioicon.svg";
+
+const Ourcourses = () => {
+  const navigate = useNavigate();
+  const { courseId } = useParams();
+  const [selectedCourse, setSelectedCourse] = useState(courseId || "chemistry");
+
+  useEffect(() => {
+    if (courseId) {
+      setSelectedCourse(courseId);
+    }
+  }, [courseId]);
+
+  const courses = [
+    { id: "chemistry", number: "01", title: "Химия", color: "#1D3452" },
+    { id: "biology", number: "02", title: "Биология", color: "#1D3452" },
+    { id: "tests", number: "03", title: "Тесты", color: "#1D3452" },
+    { id: "books", number: "04", title: "Книги", color: "#1D3452" },
+    { id: "cheatsheets", number: "05", title: "Шпоры", color: "#1D3452" },
+  ];
+
+  const courseDetails = {
+    chemistry: {
+      title: "Химия",
+      titleColor: "#FF8FA3",
+      subtitle: "для поступления",
+      description:
+        "Базовая и углубленная подготовка по химии для сдачи ОРТ, ЕГЭ, ЕНТ. Разбор заданий, практика экзаменационных тестов.",
+      price: "5000",
+      currency: "сом месяц",
+      icons: [
+        { Icon: Science, color: "#60A5FA" },
+        { Icon: Search, color: "#60A5FA" },
+        { Icon: Biotech, color: "#60A5FA" },
+      ],
+    },
+    biology: {
+      title: "Биология",
+      titleColor: "#3A86FF",
+      subtitle: "с нуля до экзамена",
+      description:
+        "Полная программа подготовки по биологии: теория, задания, тренажёры и проверка знаний.",
+      price: "5000",
+      currency: "сом месяц",
+      icons: [
+        { Icon: Biotech, color: "#60A5FA" },
+        { Icon: Search, color: "#60A5FA" },
+        { Icon: Science, color: "#60A5FA" },
+      ],
+    },
+    tests: {
+      title: "Тесты",
+      titleColor: "#FF8FA3",
+      subtitle: "онлайн практика",
+      description:
+        "Большая база тематических и экзаменационных тестов с моментальной проверкой и разбором.",
+      price: "бесплатно",
+      currency: "",
+      icons: [{ Icon: Search, color: "#60A5FA" }],
+    },
+    books: {
+      title: "Книги",
+      titleColor: "#3A86FF",
+      subtitle: "лучшие материалы",
+      description:
+        "Подборка книг и конспектов для самостоятельной подготовки по химии и биологии.",
+      price: "бесплатно",
+      currency: "",
+      icons: [{ Icon: Science, color: "#60A5FA" }],
+    },
+    cheatsheets: {
+      title: "Шпоры",
+      titleColor: "#1D3452",
+      subtitle: "выжимки формул",
+      description:
+        "Краткие шпаргалки по ключевым темам: формулы, определения, схемы.",
+      price: "бесплатно",
+      currency: "",
+      icons: [{ Icon: Science, color: "#60A5FA" }],
+    },
+  };
+
+  const details = courseDetails[selectedCourse] || courseDetails.chemistry;
+
+  const handleCourseClick = (courseId) => {
+    setSelectedCourse(courseId);
+    navigate(`/courses/${courseId}`, { replace: true });
+  };
+
+  return (
+    <MainContainer>
+      <Container>
+        <HeaderSection>
+          <Title>
+            Наши курсы
+            <TitleUnderline src={titleUnderlinee} alt="title underline" />
+          </Title>
+        </HeaderSection>
+
+        <MainGrid>
+          <CoursesList>
+            {courses.map((course, index) => (
+              <CourseCard
+                key={course.id}
+                onClick={() => handleCourseClick(course.id)}
+                isSelected={course.id === selectedCourse}
+              >
+                <CourseCardContent>
+                  <CourseInfo>
+                    <CourseNumber>{course.number}</CourseNumber>
+                    <CourseTitle color={course.color}>
+                      {course.title}
+                    </CourseTitle>
+                  </CourseInfo>
+                  <ArrowIcon
+                    fontSize="80px"
+                    isSelected={course.id === selectedCourse}
+                  />
+                </CourseCardContent>
+              </CourseCard>
+            ))}
+          </CoursesList>
+
+          <DetailsCard>
+            <DetailsCardContent>
+              <TopIcon>
+                <ScienceIcon src={atomIcon} />
+              </TopIcon>
+
+              <TitleSection>
+                <CourseTitleMain titleColor={details.titleColor}>
+                  {details.title}
+                  <CourseTitleUnderline
+                    src={titleUnderlineer}
+                    alt="title underline"
+                  />
+                </CourseTitleMain>
+                <CourseSubtitle>{details.subtitle}</CourseSubtitle>
+              </TitleSection>
+
+              <Description>{details.description}</Description>
+
+              <PriceSection>
+                {details.price && (
+                  <>
+                    <Price>{details.price}</Price>
+                    {details.currency && (
+                      <Currency>{details.currency}</Currency>
+                    )}
+                  </>
+                )}
+                <Iconstyled src={sotyicon} />
+              </PriceSection>
+              <div className="bottom-icons">
+                <BiotechIcon src={bioIcon} />
+
+                <CTAButton>Записаться на курс</CTAButton>
+              </div>
+            </DetailsCardContent>
+          </DetailsCard>
+        </MainGrid>
+
+        <BottomSection>
+          <BottomButton>Пробные уроки</BottomButton>
+        </BottomSection>
+      </Container>
+    </MainContainer>
+  );
+};
+
+export default Ourcourses;
+
+const Iconstyled = styled.img`
+  display: inline;
+  position: relative;
+  left: 250px;
+  top: 4px;
+`;
 
 const MainContainer = styled.div`
   min-height: 100vh;
@@ -113,7 +290,6 @@ const CourseTitle = styled("h1").withConfig({
   font-family: "Moderustic";
 `;
 
-// ArrowIcon: не пробрасывать isSelected в финальный svg DOM
 const ArrowIcon = styled(ArrowForward, {
   shouldForwardProp: (prop) => prop !== "isSelected",
 })(({ isSelected }) => ({
@@ -156,7 +332,6 @@ const TitleSection = styled.div`
   margin-bottom: 24px;
 `;
 
-// CourseTitleMain: не пробрасывать titleColor в DOM
 const CourseTitleMain = styled.h1.withConfig({
   shouldForwardProp: (prop) => prop !== "titleColor",
 })`
@@ -220,12 +395,6 @@ const Currency = styled.h2`
   display: inline-block;
 `;
 
-const BottomIcons = styled.div`
-  display: flex;
-  gap: 16px;
-  margin-bottom: 32px;
-`;
-
 const BiotechIcon = styled.img``;
 
 const CTAButton = styled.button`
@@ -276,186 +445,4 @@ const BottomButton = styled.button`
     transform: scale(0.96);
     box-shadow: 1px 1px 0px #3a86ff;
   }
-`;
-
-const Ourcourses = () => {
-  const navigate = useNavigate();
-  const { courseId } = useParams();
-  const [selectedCourse, setSelectedCourse] = useState(courseId || "chemistry");
-
-  useEffect(() => {
-    if (!courseId) return;
-    setSelectedCourse(courseId);
-  }, [courseId]);
-
-  const courses = [
-    { id: "chemistry", number: "01", title: "Химия", color: "#1D3452" },
-    { id: "biology", number: "02", title: "Биология", color: "#1D3452" },
-    { id: "tests", number: "03", title: "Тесты", color: "#1D3452" },
-    { id: "books", number: "04", title: "Книги", color: "#1D3452" },
-    { id: "cheatsheets", number: "05", title: "Шпоры", color: "#1D3452" },
-  ];
- 
-  const courseDetails = {
-    chemistry: {
-      title: "Химия",
-      titleColor: "#FF8FA3",
-      subtitle: "для поступления",
-      description:
-        "Базовая и углубленная подготовка по химии для сдачи ОРТ, ЕГЭ, ЕНТ. Разбор заданий, практика экзаменационных тестов.",
-      price: "5000",
-      currency: "сом месяц",
-      icons: [
-        { Icon: Science, color: "#60A5FA" },
-        { Icon: Search, color: "#60A5FA" },
-        { Icon: Biotech, color: "#60A5FA" },
-      ],
-    },
-    biology: {
-      title: "Биология",
-      titleColor: "#3A86FF",
-      subtitle: "с нуля до экзамена",
-      description:
-        "Полная программа подготовки по биологии: теория, задания, тренажёры и проверка знаний.",
-      price: "5000",
-      currency: "сом месяц",
-      icons: [
-        { Icon: Biotech, color: "#60A5FA" },
-        { Icon: Search, color: "#60A5FA" },
-        { Icon: Science, color: "#60A5FA" },
-      ],
-    },
-    tests: {
-      title: "Тесты",
-      titleColor: "#FF8FA3",
-      subtitle: "онлайн практика",
-      description:
-        "Большая база тематических и экзаменационных тестов с моментальной проверкой и разбором.",
-      price: "бесплатно",
-      currency: "",
-      icons: [{ Icon: Search, color: "#60A5FA" }],
-    },
-    books: {
-      title: "Книги",
-      titleColor: "#3A86FF",
-      subtitle: "лучшие материалы",
-      description:
-        "Подборка книг и конспектов для самостоятельной подготовки по химии и биологии.",
-      price: "бесплатно",
-      currency: "",
-      icons: [{ Icon: Science, color: "#60A5FA" }],
-    },
-    cheatsheets: {
-      title: "Шпоры",
-      titleColor: "#1D3452",
-      subtitle: "выжимки формул",
-      description:
-        "Краткие шпаргалки по ключевым темам: формулы, определения, схемы.",
-      price: "бесплатно",
-      currency: "",
-      icons: [{ Icon: Science, color: "#60A5FA" }],
-    },
-  };
-
-  const details = courseDetails[selectedCourse] || courseDetails.chemistry;
-
-  return (
-    <MainContainer>
-      <Container>
-        <HeaderSection>
-          <Title>
-            Наши курсы
-            <TitleUnderline src={titleUnderlinee} alt="title underline" />
-          </Title>
-        </HeaderSection>
-
-        <MainGrid>
-          <CoursesList>
-            {courses.map((course, index) => (
-              <CourseCard
-                key={course.id}
-                onClick={() => {
-                  setSelectedCourse(course.id);
-                  navigate(`/courses/${course.id}`);
-                }}
-                isSelected={course.id === selectedCourse}
-              >
-                <CourseCardContent>
-                  <CourseInfo>
-                    <CourseNumber>{course.number}</CourseNumber>
-                    <CourseTitle color={course.color}>
-                      {course.title}
-                    </CourseTitle>
-                  </CourseInfo>
-                  <ArrowIcon
-                    fontSize="80px"
-                    isSelected={course.id === selectedCourse}
-                  />
-                </CourseCardContent>
-              </CourseCard>
-            ))}
-          </CoursesList>
-
-          {/* Course Details Card */}
-          <DetailsCard>
-            <DetailsCardContent>
-              {/* Top Right Icon */}
-              <TopIcon>
-                <ScienceIcon src={atomIcon} />
-              </TopIcon>
-
-              {/* Title */}
-              <TitleSection>
-                <CourseTitleMain titleColor={details.titleColor}>
-                  {details.title}
-                  <CourseTitleUnderline
-                    src={titleUnderlineer}
-                    alt="title underline"
-                  />
-                </CourseTitleMain>
-                <CourseSubtitle>{details.subtitle}</CourseSubtitle>
-              </TitleSection>
-
-              {/* Description */}
-              <Description>{details.description}</Description>
-
-              {/* Price */}
-              <PriceSection>
-                {details.price && (
-                  <>
-                    <Price>{details.price}</Price>
-                    {details.currency && (
-                      <Currency>{details.currency}</Currency>
-                    )}
-                  </>
-                )}
-                <Iconstyled src={sotyicon} />
-              </PriceSection>
-              <div className="bottom-icons">
-                {/* Bottom Icons */}
-                <BiotechIcon src={bioIcon} />
-
-                {/* CTA Button */}
-                <CTAButton>Записаться на курс</CTAButton>
-              </div>
-            </DetailsCardContent>
-          </DetailsCard>
-        </MainGrid>
-
-        {/* Bottom CTA Button */}
-        <BottomSection>
-          <BottomButton>Пробные уроки</BottomButton>
-        </BottomSection>
-      </Container>
-    </MainContainer>
-  );
-};
-
-export default Ourcourses;
-
-const Iconstyled = styled.img`
-  display: inline;
-  position: relative;
-  left: 250px;
-  top: 4px;
 `;
