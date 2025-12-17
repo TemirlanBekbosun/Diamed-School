@@ -1,0 +1,29 @@
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchLessons } from "../Courses/coursesThunk";
+
+const coursesSlice = createSlice({
+  name: "courses",
+  initialState: {
+    lessons: [],
+    loading: false,
+    error: null,
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchLessons.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchLessons.fulfilled, (state, action) => {
+        state.loading = false;
+        state.lessons = action.payload;
+      })
+      .addCase(fetchLessons.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+  },
+});
+
+export default coursesSlice.reducer;
