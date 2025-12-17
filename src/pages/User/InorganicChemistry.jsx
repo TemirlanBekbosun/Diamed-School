@@ -13,7 +13,7 @@ import { useEffect } from "react";
 import UserHeaders from "../../layout/user/userHeaders";
 import Footer from "../../layout/Footer";
 import { fetchLessons } from "../../store/inorganicThunk";
-import LessonsOrga from "../../components/user/LassonInor";
+import LessonsInor from "../../components/user/LassonInor";
 
 const Breadcrumbs = styled(Box)(({ theme }) => ({
   color: "#5b7aa0",
@@ -40,7 +40,7 @@ const LoadingContainer = styled(Box)({
 
 export default function InorganicChemistry() {
   const navigate = useNavigate();
-  const { sectionId } = useParams(); // URL'ден алынуучу sectionId
+  const { sectionId } = useParams(); 
   const dispatch = useDispatch();
 
   const {
@@ -54,17 +54,16 @@ export default function InorganicChemistry() {
     dispatch(fetchLessons(id));
   }, [sectionId, dispatch]);
 
-  // МААНИЛҮҮ: Дата жана убакытты туура иштетүү
   const formattedLessons = lessons.map((lesson) => {
     let dateStr = "20.07.25";
     let timeStr = "19:00";
 
     if (lesson.date) {
       const [datePart, timePartWithMillis] = lesson.date.split("T");
-      dateStr = datePart.replace(/-/g, "."); // 2025-12-16 → 2025.12.16
+      dateStr = datePart.replace(/-/g, "."); 
 
       if (timePartWithMillis) {
-        timeStr = timePartWithMillis.substring(0, 5); // 09:18:07.222 → 09:18
+        timeStr = timePartWithMillis.substring(0, 5); 
       }
     }
 
@@ -117,7 +116,7 @@ export default function InorganicChemistry() {
       )}
 
       {!loading && !error && formattedLessons.length > 0 && (
-        <LessonsOrga
+        <LessonsInor
           lessons={formattedLessons}
           itemsPerPage={8}
           stripeColors={["#12A84A", "#8C1A1A", "#D56B1A", "#2A1B6E", "#0C1220"]}

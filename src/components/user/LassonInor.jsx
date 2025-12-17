@@ -91,7 +91,7 @@ const PageNumber = styled(Typography)({
   minWidth: 60,
   textAlign: "center",
 });
-export default function LessonsOrga({
+export default function LessonsInor({
   lessons = [],
   itemsPerPage = 8,
   stripeColors = ["#12A84A", "#8C1A1A", "#D56B1A", "#2A1B6E", "#0C1220"],

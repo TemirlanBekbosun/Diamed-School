@@ -10,9 +10,9 @@ import {
   REGISTER,
 } from "redux-persist";
 import storageSession from "redux-persist/lib/storage/session";
-import authReducer from "./features/auth/authSlice"; // default export
+import authReducer from "./features/auth/authSlice"; 
 import inorganicReducer from "./inorganicSlice";
-import { injectStore } from "../configs/axiosInstanse"; // инжектим store в axios
+import { injectStore } from "../configs/axiosInstanse"; 
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -39,7 +39,6 @@ const store = configureStore({
 
 const persistor = persistStore(store);
 
-// inject store into axios interceptors so axiosInstance can read token from store
 injectStore(store);
 
 export { store, persistor };

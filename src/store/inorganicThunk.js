@@ -8,7 +8,7 @@ export const fetchLessons = createAsyncThunk(
       const response = await axiosInstance.get(
         `/api/sections/${sectionId}/lessons`
       );
-      return response.data; // массив келет
+      return response.data; 
     } catch (error) {
       const errorMessage =
         error.response?.data?.message ||
