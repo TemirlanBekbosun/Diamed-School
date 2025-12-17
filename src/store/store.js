@@ -11,12 +11,12 @@ import {
 } from "redux-persist";
 import storageSession from "redux-persist/lib/storage/session";
 import authReducer from "./features/auth/authSlice";
-import organicReducer from "../store/Organic/OrganicSlice"; // ← кошулду
+import organicReducer from "../store/Organic/OrganicSlice"; 
 import { injectStore } from "../configs/axiosInstanse";
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  organic: organicReducer, // ← кошулду
+  organic: organicReducer,
 });
 
 const persistConfig = {

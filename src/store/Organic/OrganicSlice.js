@@ -1,4 +1,3 @@
-// src/features/organic/OrganicSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchLessons } from '../Organic/OragnicThunk';
 
