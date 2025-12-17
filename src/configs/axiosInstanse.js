@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://16.171.1.63/swagger-ui/index.html";
+const BASE_URL = "http://192.168.60.139:2025";
 
 export const axiosInstance = axios.create({
   baseURL: BASE_URL,
@@ -9,6 +9,8 @@ export const axiosInstance = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+axiosInstance.defaults.withCredentials = false;
 
 let customStore;
 
@@ -19,12 +21,11 @@ export const injectStore = (store) => {
 axiosInstance.interceptors.request.use(
   (config) => {
     const updateConfig = { ...config };
+    updateConfig.headers = updateConfig.headers || {};
 
-    const { token } = customStore.getState()?.auth;
-
-    if (token) {
-      updateConfig.headers.Authorization = `Bearer ${token}`;
-    }
+    const token = customStore?.getState?.()?.auth?.token;
+    console.debug("Auth token:", token);
+    if (token) updateConfig.headers.Authorization = `Bearer ${token}`;
 
     return updateConfig;
   },

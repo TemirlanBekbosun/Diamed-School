@@ -11,10 +11,12 @@ import {
 } from "redux-persist";
 import storageSession from "redux-persist/lib/storage/session";
 import authReducer from "./features/auth/authSlice"; // default export
+import inorganicReducer from "./inorganicSlice";
 import { injectStore } from "../configs/axiosInstanse"; // инжектим store в axios
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  inorganic: inorganicReducer,
 });
 
 const persistConfig = {
