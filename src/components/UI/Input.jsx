@@ -100,11 +100,13 @@ const InputContainer = styled("div")({
 });
 
 const InputLabelText = styled(Typography)(({ error }) => ({
-  fontSize: "14px",
-  color: error ? "red" : "#464444",
+  color: error ? "red" : "#1D3452",
   marginBottom: "6px",
   fontWeight: 400,
   lineHeight: "100%",
+   fontFamily: "Cygre-Regular",
+  fontSize: "24px",
+  fontStyle: "Regular",
 }));
 
 const StyledInput = styled(TextField)(({ error }) => ({

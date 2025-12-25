@@ -1,4 +1,3 @@
-import Header from "../layout/Header";
 import Intro from "../components/main/Intro";
 import { CoursesSection } from "../components/main/CoursesSection";
 import Ourcourses from "../components/main/Ourcourses";
@@ -11,10 +10,8 @@ import Footer from "../layout/Footer";
 const MainPage = () => {
   return (
     <>
-      <Header />
       <Intro />
       <CoursesSection />
-      
       <Ourcourses />
       <ReviewsSection />
       <NewsAndArticles />

@@ -1,259 +1,115 @@
-import React from "react";
-import {
-  Box,
-  Typography,
-  Grid,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
+import React, { useState } from "react";
+import { Box, Typography, IconButton, Collapse } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import RemoveIcon from "@mui/icons-material/Remove";
+import Plus from "../../assets/icons/Plus.svg";
 
-const Questions = () => {
-  const faqData = [
+export default function FAQ() {
+  const [open, setOpen] = useState(null);
+
+  const data = [
     {
-      question: "Как записаться на курс?",
-      answer:
-        "Для записи на курс вы можете связаться с нами по телефону или заполнить форму на сайте. Наш менеджер свяжется с вами в течение дня для уточнения деталей и оформления документов.",
+      q: "Как записаться на курс?",
+      a: "Вы можете оставить заявку на сайте или написать нашему менеджеру. Мы свяжемся с вами, уточним детали и подберём удобное расписание.",
     },
     {
-      question: "Есть ли у вас онлайн-обучение?",
-      answer:
-        "Да, у нас есть как очные, так и онлайн форматы обучения. Онлайн занятия проходят в интерактивном режиме с использованием современных платформ для видеосвязи.",
+      q: "Есть ли у вас онлайн-обучение?",
+      a: "Да, все курсы доступны в онлайн-формате. Занятия проходят в Zoom с преподавателем, а материалы выдаются в личном кабинете.",
     },
     {
-      question: "Можно ли сначала пройти пробное занятие?",
-      answer:
-        "Конечно! Мы предоставляем возможность посетить пробное занятие бесплатно. Это поможет вам познакомиться с преподавателем и методикой обучения.",
+      q: "Можно ли сначала пройти пробное занятие?",
+      a: "Да, вы можете пройти бесплатное пробное занятие, чтобы оценить качество обучения и познакомиться с преподавателем.",
     },
     {
-      question: "Какие материалы я получу после записи на курс?",
-      answer:
-        "После записи на курс вы получите доступ к учебным материалам, включая конспекты, практические задания, тесты и дополнительные ресурсы для самостоятельного изучения.",
+      q: "Какие материалы я получу после записи на курс?",
+      a: "Вы получите доступ к презентациям, конспектам, домашним заданиям, тестам и дополнительным материалам для подготовки.",
     },
     {
-      question: "Можно ли оплатить курс частями?",
-      answer:
-        "Да, мы предоставляем гибкие условия оплаты. Вы можете оплатить курс частями по согласованному графику. Подробности уточняйте у наших менеджеров.",
+      q: "Можно ли оплатить курс частями?",
+      a: "Да, мы предоставляем удобную рассрочку без переплаты. Оплата делится на несколько равных частей.",
     },
     {
-      question: "Кто будет моим преподавателем?",
-      answer:
-        "Вас будут обучать опытные преподаватели центра Diamed_School, специалисты по химии и биологии с многолетним стажем подготовки к экзаменам ОРТ, ЕГЭ, ЕНТ. Все наши наставники прошли строгий отбор и имеют успешные результаты учеников. Основную программу разрабатывает и курирует Диана Койчумановна — автор уникальной методики обучения.",
+      q: "Кто будет моим преподавателем?",
+      a: `Вас будут обучать опытные преподаватели центра Diamed_School
+       специалисты по химии и биологии с многолетним стажем подготовки к экзаменам ОРТ, ЕГЭ и ЕНТ. Все наставники прошли строгий отбор и имеют успешные результаты учеников.`,
     },
   ];
 
   return (
-    <Box
-      sx={{
-        backgroundColor: "#F8F8F8",
-        minHeight: "100vh",
-        py: 0,
-      }}
-    >
-      <Box
-        sx={{
-          maxWidth: "900px",
-          mx: "auto",
-          px: 2,
-        }}
-      >
-        {/* Заголовок */}
-        <Typography
-          sx={{
-            fontSize: "52px",
-            fontWeight: 700,
-            color: "#333333",
-            textAlign: "center",
-            mb: "60px",
-            mt: "80px",
-            fontFamily: "Roboto, sans-serif",
-            lineHeight: 1.1,
-          }}
-        >
-          Часто задаваемые вопросы
-        </Typography>
+    <Wrapper>
+      <Title>Часто задаваемые вопросы</Title>
 
-        {/* FAQ Grid */}
-        <Grid container spacing={6}>
-          {/* Левая колонка */}
-          <Grid item xs={12} md={6}>
-            {faqData.slice(0, 3).map((item, index) => (
-              <Box key={index}>
-                <Accordion
-                  sx={{
-                    boxShadow: "none",
-                    backgroundColor: "transparent",
-                    "&:before": {
-                      display: "none",
-                    },
-                    "&.Mui-expanded": {
-                      margin: 0,
-                    },
-                  }}
-                >
-                  <AccordionSummary
-                    expandIcon={
-                      <AddIcon
-                        sx={{
-                          color: "#3366CC",
-                          fontSize: "20px",
-                        }}
-                      />
-                    }
-                    sx={{
-                      px: 0,
-                      py: "20px",
-                      minHeight: "auto",
-                      "& .MuiAccordionSummary-content": {
-                        margin: 0,
-                      },
-                      "& .MuiAccordionSummary-expandIconWrapper": {
-                        marginLeft: "auto",
-                      },
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: "20px",
-                        fontWeight: 400,
-                        color: "#3366CC",
-                        fontFamily: "Roboto, sans-serif",
-                        lineHeight: 1.2,
-                      }}
-                    >
-                      {item.question}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails
-                    sx={{
-                      px: 0,
-                      py: "20px",
-                      pb: "20px",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: "16px",
-                        fontWeight: 400,
-                        color: "#555555",
-                        fontFamily: "Roboto, sans-serif",
-                        lineHeight: 1.5,
-                        "& .highlight": {
-                          color: "#FF0000",
-                        },
-                      }}
-                      dangerouslySetInnerHTML={{
-                        __html: item.answer.replace(
-                          "Diamed_School",
-                          '<span class="highlight">Diamed_School</span>'
-                        ),
-                      }}
-                    />
-                  </AccordionDetails>
-                </Accordion>
-                <Box
-                  sx={{
-                    height: "1px",
-                    backgroundColor: "#D0E0F0",
-                    width: "100%",
-                  }}
-                />
-              </Box>
-            ))}
-          </Grid>
+      <Grid>
+        {data.map((item, idx) => (
+          <Item key={idx} onClick={() => setOpen(open === idx ? null : idx)}>
+            <QuestionRow>
+              <QuestionText>{item.q}</QuestionText>
 
-          {/* Правая колонка */}
-          <Grid item xs={12} md={6}>
-            {faqData.slice(3, 6).map((item, index) => (
-              <Box key={index + 3}>
-                <Accordion
-                  defaultExpanded={index === 2}
-                  sx={{
-                    boxShadow: "none",
-                    backgroundColor: "transparent",
-                    "&:before": {
-                      display: "none",
-                    },
-                    "&.Mui-expanded": {
-                      margin: 0,
-                    },
-                  }}
-                >
-                  <AccordionSummary
-                    expandIcon={
-                      <AddIcon
-                        sx={{
-                          color: "#3366CC",
-                          fontSize: "20px",
-                        }}
-                      />
-                    }
-                    sx={{
-                      px: 0,
-                      py: "20px",
-                      minHeight: "auto",
-                      "& .MuiAccordionSummary-content": {
-                        margin: 0,
-                      },
-                      "& .MuiAccordionSummary-expandIconWrapper": {
-                        marginLeft: "auto",
-                      },
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: "20px",
-                        fontWeight: 400,
-                        color: "#3366CC",
-                        fontFamily: "Roboto, sans-serif",
-                        lineHeight: 1.2,
-                      }}
-                    >
-                      {item.question}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails
-                    sx={{
-                      px: 0,
-                      py: "20px",
-                      pb: "20px",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: "16px",
-                        fontWeight: 400,
-                        color: "#555555",
-                        fontFamily: "Roboto, sans-serif",
-                        lineHeight: 1.5,
-                        "& .highlight": {
-                          color: "#FF0000",
-                        },
-                      }}
-                      dangerouslySetInnerHTML={{
-                        __html: item.answer.replace(
-                          "Diamed_School",
-                          '<span class="highlight">Diamed_School</span>'
-                        ),
-                      }}
-                    />
-                  </AccordionDetails>
-                </Accordion>
-                <Box
-                  sx={{
-                    height: "1px",
-                    backgroundColor: "#D0E0F0",
-                    width: "100%",
-                  }}
-                />
-              </Box>
-            ))}
-          </Grid>
-        </Grid>
-      </Box>
-    </Box>
+              <IconButton size="small">
+                {open === idx ? (
+                  <RemoveIcon style={{ color: "#2563eb" }} />
+                ) : (
+                  <img src={Plus} alt="" />
+                )}
+              </IconButton>
+            </QuestionRow>
+
+            <Collapse in={open === idx}>
+              {item.a && <Answer>{item.a}</Answer>}
+            </Collapse>
+          </Item>
+        ))}
+      </Grid>
+    </Wrapper>
   );
-};
+}
 
-export default Questions;
+const Wrapper = styled(Box)(() => ({
+  width: "100%",
+  maxWidth: "1200px",
+  margin: "0 auto",
+}));
+
+const Title = styled(Typography)(() => ({
+  textAlign: "center",
+  fontSize: "78px",
+  fontWeight: 500,
+  marginBottom: "40px",
+}));
+
+const Grid = styled(Box)(({ theme }) => ({
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  columnGap: "60px",
+  rowGap: "20px",
+
+  [theme.breakpoints.down("md")]: {
+    gridTemplateColumns: "1fr",
+  },
+}));
+
+const Item = styled(Box)(() => ({
+  paddingBottom: "12px",
+  borderBottom: "1px solid #dcdcdc",
+  cursor: "pointer",
+}));
+
+const QuestionRow = styled(Box)(() => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+}));
+
+const QuestionText = styled(Typography)(() => ({
+  fontSize: "20px",
+  color: "#2563eb",
+  fontWeight: 500,
+}));
+
+const Answer = styled(Typography)(() => ({
+  marginTop: "10px",
+  fontSize: "17px",
+  fontWeight: 600,
+  lineHeight: "1.6",
+  color: "#333",
+}));

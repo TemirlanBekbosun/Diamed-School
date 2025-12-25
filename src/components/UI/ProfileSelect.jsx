@@ -3,11 +3,11 @@ import {
   Select as MuiSelect,
   MenuItem,
   styled,
-  Avatar,
   Box,
   Typography,
 } from "@mui/material";
 import { KeyboardArrowDown, Settings, Logout } from "@mui/icons-material";
+import iconProfile from "../../assets/icons/UserAcountprofile.svg";
 
 const StyledProfileContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -69,23 +69,7 @@ const AvatarContainer = styled(Box)({
   backgroundColor: "#F8F7FC",
 });
 
-const AvatarIcon = styled(Box)({
-  width: 24,
-  height: 24,
-  borderRadius: 6,
-  background: "linear-gradient(135deg, #FF6B9D 0%, #4A7AFF 100%)",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  "&::before": {
-    content: '""',
-    width: 12,
-    height: 12,
-    borderRadius: 3,
-    background: "linear-gradient(135deg, #4A7AFF 0%, #FF6B9D 100%)",
-    opacity: 0.8,
-  },
-});
+const AvatarIcon = styled("img")({});
 
 const StyledMenuItem = styled(MenuItem)({
   fontSize: 16,
@@ -151,11 +135,12 @@ const ProfileSelect = ({
         displayEmpty
         renderValue={() => (
           <StyledProfileContainer>
-            <AvatarContainer>
-              <AvatarIcon />
-            </AvatarContainer>
             <UserName>{userName}</UserName>
+
             <ChevronIcon />
+            <AvatarContainer>
+              <AvatarIcon src={iconProfile} />
+            </AvatarContainer>
           </StyledProfileContainer>
         )}
         MenuProps={{
