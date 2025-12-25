@@ -1,18 +1,26 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router";
 import Input from "../components/UI/Input";
 import Header from "../layout/Header";
 import Button from "../components/UI/Button";
 import Footer from "../layout/Footer";
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Header />
       <MainContainer>
         <h1>Вход</h1>
+
         <MainInputContainer>
           <Input type="email" placeholder="E-mail" />
           <Input.Password placeholder="Пароль" />
+
+          <ForgotPasswordButton onClick={() => navigate("/reset-password")}>
+            Сбросить пароль?
+          </ForgotPasswordButton>
         </MainInputContainer>
 
         <StyledButton variant="outlined">Войти</StyledButton>
@@ -26,8 +34,7 @@ export default SignIn;
 
 const MainContainer = styled("div")(() => ({
   background: "linear-gradient(180deg, #F2F7FB 20%, #629eff 80%)",
-  marginLeft: "40px",
-  marginRight: "40px",
+  margin: "40px",
   textAlign: "center",
   borderRadius: "30px",
   padding: "60px 0",
@@ -44,10 +51,23 @@ const MainInputContainer = styled("div")(() => ({
   gap: "20px",
   margin: "0 auto",
   width: "400px",
-  textAlign: "center",
-  marginBottom: "70px",
+  marginBottom: "20px",
 }));
 
 const StyledButton = styled(Button)(() => ({
   width: "24%",
+}));
+
+const ForgotPasswordButton = styled("button")(() => ({
+  background: "none",
+  border: "none",
+  color: "#2f5acf",
+  fontSize: "14px",
+  cursor: "pointer",
+  textAlign: "right",
+  marginTop: "5px",
+
+  "&:hover": {
+    textDecoration: "underline",
+  },
 }));

@@ -1,11 +1,6 @@
-import MainPage from "./pages/MainPage";
+import SignIn from "./pages/SignIn";
 
-const App = () => {
-  return (
-    <>
-      <MainPage />
-    </>
-  );
-};
+const App = () => <SignIn />;
 
 export default App;
+
